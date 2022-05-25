@@ -11,6 +11,17 @@ final class BaseViewModel: ObservableObject {
   
   // Tab bar
   @Published var currentTab: Tab = .home
+  
+  // basket sheet
+  @Published var showBasket = false
+  
+  @Published var showSideBar = false
+  
+  @Published var homeTab = "Sneakers"
+  
+  // Detail View properties
+  @Published var currentProduct: Product?
+  @Published var showDetail = false
 }
 
 // tab items

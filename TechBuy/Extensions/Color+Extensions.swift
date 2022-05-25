@@ -18,4 +18,5 @@ struct AppColorTheme {
   let paleGreen = Color("PaleGreen")
   let palePink = Color("PalePink")
   let paleYellow = Color("PaleYellow")
+  let actionColor = Color("OrangeAction")
 }
