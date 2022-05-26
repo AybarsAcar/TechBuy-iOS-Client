@@ -22,6 +22,15 @@
 		00D36DE9283CEFD4006D8B6B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DE8283CEFD4006D8B6B /* BaseViewModel.swift */; };
 		00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DEA283CF337006D8B6B /* CustomCurveShape.swift */; };
 		00D36DEE283CF7A8006D8B6B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DED283CF7A8006D8B6B /* HomeView.swift */; };
+		00DB0E83283F55AC005F7D4B /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0E82283F55AC005F7D4B /* Cloudinary */; };
+		00DB0E86283F561E005F7D4B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E85283F561E005F7D4B /* ImageService.swift */; };
+		00DB0E88283F564A005F7D4B /* CloudinaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E87283F564A005F7D4B /* CloudinaryService.swift */; };
+		00DB0E8B283F56B4005F7D4B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0E8A283F56B4005F7D4B /* Swinject */; };
+		00DB0E8D283F56EA005F7D4B /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E8C283F56EA005F7D4B /* Resolver.swift */; };
+		00DB0E8F283F56F3005F7D4B /* InjectWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E8E283F56F3005F7D4B /* InjectWrapper.swift */; };
+		00DB0E91283F596D005F7D4B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E90283F596D005F7D4B /* APIError.swift */; };
+		00DB0E94283F5AD0005F7D4B /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E93283F5AD0005F7D4B /* FavouritesView.swift */; };
+		00DB0E96283F5AE7005F7D4B /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E95283F5AE7005F7D4B /* FavouritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +50,13 @@
 		00D36DE8283CEFD4006D8B6B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		00D36DEA283CF337006D8B6B /* CustomCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurveShape.swift; sourceTree = "<group>"; };
 		00D36DED283CF7A8006D8B6B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		00DB0E85283F561E005F7D4B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		00DB0E87283F564A005F7D4B /* CloudinaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryService.swift; sourceTree = "<group>"; };
+		00DB0E8C283F56EA005F7D4B /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		00DB0E8E283F56F3005F7D4B /* InjectWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectWrapper.swift; sourceTree = "<group>"; };
+		00DB0E90283F596D005F7D4B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		00DB0E93283F5AD0005F7D4B /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		00DB0E95283F5AE7005F7D4B /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB0E83283F55AC005F7D4B /* Cloudinary in Frameworks */,
+				00DB0E8B283F56B4005F7D4B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +141,8 @@
 		00D36DD3283CEAF9006D8B6B /* DependencyContainer */ = {
 			isa = PBXGroup;
 			children = (
+				00DB0E8C283F56EA005F7D4B /* Resolver.swift */,
+				00DB0E8E283F56F3005F7D4B /* InjectWrapper.swift */,
 			);
 			path = DependencyContainer;
 			sourceTree = "<group>";
@@ -164,12 +184,12 @@
 		00D36DD8283CEB09006D8B6B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0010AF50283E35FA00CF07EC /* Common */,
-				0010AF4D283E34B600CF07EC /* ProductDetails */,
-				00D36DE8283CEFD4006D8B6B /* BaseViewModel.swift */,
 				00D36DC6283CEA70006D8B6B /* ContentView.swift */,
 				00D36DE5283CEFA5006D8B6B /* TabBar.swift */,
+				0010AF50283E35FA00CF07EC /* Common */,
+				00DB0E92283F5AAF005F7D4B /* Favouries */,
 				00D36DE4283CEF91006D8B6B /* Home */,
+				0010AF4D283E34B600CF07EC /* ProductDetails */,
 				00D36DDF283CEBA1006D8B6B /* ViewModel */,
 			);
 			path = View;
@@ -185,8 +205,10 @@
 		00D36DDA283CEB2A006D8B6B /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				00DB0E90283F596D005F7D4B /* APIError.swift */,
 				00D36DDB283CEB37006D8B6B /* DTOs */,
 				00D36DDC283CEB3B006D8B6B /* Repositories */,
+				00DB0E84283F55FE005F7D4B /* Services */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -216,6 +238,7 @@
 		00D36DDE283CEB62006D8B6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				00DB0E85283F561E005F7D4B /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -224,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				00D36DE0283CEBC8006D8B6B /* AccountViewModel.swift */,
+				00D36DE8283CEFD4006D8B6B /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -244,6 +268,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		00DB0E84283F55FE005F7D4B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				00DB0E87283F564A005F7D4B /* CloudinaryService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		00DB0E92283F5AAF005F7D4B /* Favouries */ = {
+			isa = PBXGroup;
+			children = (
+				00DB0E93283F5AD0005F7D4B /* FavouritesView.swift */,
+				00DB0E95283F5AE7005F7D4B /* FavouritesViewModel.swift */,
+			);
+			path = Favouries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,6 +301,10 @@
 			dependencies = (
 			);
 			name = TechBuy;
+			packageProductDependencies = (
+				00DB0E82283F55AC005F7D4B /* Cloudinary */,
+				00DB0E8A283F56B4005F7D4B /* Swinject */,
+			);
 			productName = TechBuy;
 			productReference = 00D36DC1283CEA70006D8B6B /* TechBuy.app */;
 			productType = "com.apple.product-type.application";
@@ -288,6 +333,10 @@
 				Base,
 			);
 			mainGroup = 00D36DB8283CEA70006D8B6B;
+			packageReferences = (
+				00DB0E81283F55AC005F7D4B /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
+				00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 00D36DC2283CEA70006D8B6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -314,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB0E96283F5AE7005F7D4B /* FavouritesViewModel.swift in Sources */,
 				0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */,
 				00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */,
 				00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */,
@@ -321,12 +371,18 @@
 				00D36DE6283CEFA5006D8B6B /* TabBar.swift in Sources */,
 				0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */,
 				00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */,
+				00DB0E88283F564A005F7D4B /* CloudinaryService.swift in Sources */,
 				00D36DEE283CF7A8006D8B6B /* HomeView.swift in Sources */,
 				0010AF4C283E297300CF07EC /* Product.swift in Sources */,
 				0010AF56283E39E400CF07EC /* View+Extensions.swift in Sources */,
+				00DB0E8D283F56EA005F7D4B /* Resolver.swift in Sources */,
+				00DB0E8F283F56F3005F7D4B /* InjectWrapper.swift in Sources */,
 				0010AF54283E361500CF07EC /* Navbar.swift in Sources */,
 				00D36DE3283CEEA0006D8B6B /* Color+Extensions.swift in Sources */,
 				00D36DE9283CEFD4006D8B6B /* BaseViewModel.swift in Sources */,
+				00DB0E94283F5AD0005F7D4B /* FavouritesView.swift in Sources */,
+				00DB0E86283F561E005F7D4B /* ImageService.swift in Sources */,
+				00DB0E91283F596D005F7D4B /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +583,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00DB0E81283F55AC005F7D4B /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00DB0E82283F55AC005F7D4B /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00DB0E81283F55AC005F7D4B /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		00DB0E8A283F56B4005F7D4B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 00D36DB9283CEA70006D8B6B /* Project object */;
 }

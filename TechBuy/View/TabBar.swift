@@ -27,7 +27,7 @@ struct TabBar: View {
         .background(Color.black.opacity(0.04))
         .tag(Tab.home)
       
-      Text("Heart")
+      FavouritesView()
         .tag(Tab.heart)
       
       Text("Clipboard")
