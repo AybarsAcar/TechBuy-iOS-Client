@@ -11,7 +11,7 @@ import SwiftUI
 /// Container of the main views
 struct TabBar: View {
   
-  @StateObject private var baseData = BaseViewModel()
+  @EnvironmentObject private var baseData: BaseViewModel
   
   init() {
     // hide the default tab view

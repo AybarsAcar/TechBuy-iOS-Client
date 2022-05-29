@@ -16,6 +16,7 @@ struct TechBuyApp: App {
     WindowGroup {
       ContentView()
         .environmentObject(accountViewModel)
+        .preferredColorScheme(.light)
     }
   }
 }

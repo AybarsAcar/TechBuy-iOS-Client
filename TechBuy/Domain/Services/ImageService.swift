@@ -11,6 +11,6 @@ import UIKit
 /// implementation is with Cloudinary
 protocol ImageService {
   
-  ///
-  func getImage(byURL url: String) async throws -> UIImage
+  /// returns Image Data passed by the URL String
+  func getImage(byURL url: String) async throws -> Data
 }

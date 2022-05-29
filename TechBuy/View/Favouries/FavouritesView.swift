@@ -9,23 +9,32 @@ import SwiftUI
 
 struct FavouritesView: View {
   
-  @StateObject private var viewModel = FavouritesViewModel()
-  
   var body: some View {
-    Group {
-      if let image = viewModel.image {
-        Image(uiImage: image)
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 400, height: 400)
+    VStack {
+      CachedImage(withURL: "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653778246/imac-pro_sxtx2w.png", animation: .spring(), transition: .scale.combined(with: .opacity)) { state in
+        switch state {
+        case .empty:
+          ProgressView()
+            .frame(width: 100, height: 100)
+            .background(.blue, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+          
+        case .success(let image):
+          image
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 100, height: 100)
+        
+        case .failure:
+          Image(systemName: "photo.on.rectangle.angled")
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .padding()
+            .background(.blue, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+          
+        @unknown default:
+          fatalError()
+        }
       }
-      else {
-        Image(systemName: "person")
-      }
-      
-    }
-    .task {
-      await viewModel.getImage()
     }
   }
 }

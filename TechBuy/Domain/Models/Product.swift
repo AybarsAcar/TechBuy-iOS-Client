@@ -11,9 +11,13 @@ struct Product: Identifiable, Codable {
   var id: Int
   var productImage: String
   var name: String
-  var productPrice: String
+  var price: Double
   var isLiked: Bool = false
   var productRating: Int
+  
+  var priceDisplay: String {
+    return price.asCurrencyWith2Decimals()
+  }
   
   public var productBG: Color {
     
@@ -34,10 +38,10 @@ struct Product: Identifiable, Codable {
 
 extension Product {
   static let dummyData = [
-    Product(id: 1, productImage: "electronics", name: "Raspberry-Pi", productPrice: "$240.0", productRating: 3),
-    Product(id: 2, productImage: "phone", name: "iPhone 13 Pro Max", productPrice: "$1,240.0", productRating: 3),
-    Product(id: 3, productImage: "laptop", name: "Macbook Pro 16", productPrice: "$3,420.0", isLiked: true, productRating: 3),
-    Product(id: 4, productImage: "headphone", name: "Sony XM-4", productPrice: "$240.0", productRating: 3)
+    Product(id: 1, productImage: "electronics", name: "Raspberry-Pi", price: 240, productRating: 3),
+    Product(id: 2, productImage: "phone", name: "iPhone 13 Pro Max", price: 1270, productRating: 3),
+    Product(id: 3, productImage: "laptop", name: "Macbook Pro 16", price: 3420, isLiked: true, productRating: 3),
+    Product(id: 4, productImage: "headphone", name: "Sony XM-4", price: 240, productRating: 3)
   ]
 }
 

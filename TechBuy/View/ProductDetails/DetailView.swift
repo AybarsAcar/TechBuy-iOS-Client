@@ -162,7 +162,7 @@ struct DetailView: View {
           } label: {
             HStack(spacing: 15) {
               VStack {
-                Text(product.productPrice)
+                Text(product.priceDisplay)
                   .foregroundColor(.white)
                 
                 Text("Unit Price")

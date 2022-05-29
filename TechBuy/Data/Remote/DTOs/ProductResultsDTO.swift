@@ -24,7 +24,7 @@ struct ProductResultsDTO: Codable {
 struct ProductDTO: Codable {
   let id: Int
   let name, description: String
-  let price: Int
+  let price: Double
   let imageURL: String
   let productType, productBrand: String
   
@@ -41,6 +41,6 @@ extension ProductDTO {
   
   /// Maps the Product DTO into a Product Model for UI use
   func toProduct() -> Product {
-    return Product(id: self.id, productImage: "", name: "", productPrice: "", productRating: 1)
+    return Product(id: self.id, productImage: "", name: "", price: 0, productRating: 1)
   }
 }

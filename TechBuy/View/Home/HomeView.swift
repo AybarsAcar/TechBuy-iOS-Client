@@ -138,7 +138,7 @@ extension HomeView {
         .padding(.top, 8)
         .frame(maxWidth: .infinity, alignment: .trailing)
       
-      Text(product.productPrice)
+      Text(product.priceDisplay)
         .font(.caption.bold())
         .frame(maxWidth: .infinity, alignment: .trailing)
       

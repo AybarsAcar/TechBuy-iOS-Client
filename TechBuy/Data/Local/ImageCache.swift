@@ -7,78 +7,34 @@
 
 import SwiftUI
 
-/// Declares in-memory image cache
-protocol ImageCacheType: AnyObject {
-  /// Returns the image associated with a given url
-  func image(for url: URL) -> UIImage?
-  /// Inserts the image of the specified url in the cache
-  func insertImage(_ image: UIImage?, for url: URL)
-  /// Removes the image of the specified url in the cache
-  func removeImage(for url: URL)
-  /// Removes all images from the cache
-  func removeAllImages()
-  /// Accesses the value associated with the given key for reading and writing
-  subscript(_ url: URL) -> UIImage? { get set }
-}
-
-/// Responsible for caching images
+/// Manager that handles Image Caching in NSCache
 final class ImageCache {
   
-  // 1st level cache, that contains encoded images
-  private lazy var imageCache: NSCache<AnyObject, AnyObject> = {
-    let cache = NSCache<AnyObject, AnyObject>()
-    cache.countLimit = config.countLimit
-    return cache
-  }()
+  let COUNT_LIMIT = 100
+  let TOTAL_COST_LIMIT = 50 * 1024 * 1024 // 50MB, only caches images that are less than or equal to 50MB
   
-  // 2nd level cache, that contains decoded images
-  private lazy var decodedImageCache: NSCache<AnyObject, AnyObject> = {
-    let cache = NSCache<AnyObject, AnyObject>()
-    cache.totalCostLimit = config.memoryLimit
-    return cache
-  }()
+  /// Image Data is stored with NSString Key which will be the URL string of the image
+  typealias CacheType = NSCache<NSString, NSData>
   
-  private let lock = NSLock()
-  private let config: Config
+  static let shared = ImageCache()
+  private init() { }
   
-  struct Config {
-    let countLimit: Int
-    let memoryLimit: Int
+  private lazy var cache: CacheType = {
+    let cache = CacheType()
     
-    static let defaultConfig = Config(countLimit: 100, memoryLimit: 1024 * 1024 * 100) // 100 MB
+    cache.countLimit = COUNT_LIMIT
+    cache.totalCostLimit = TOTAL_COST_LIMIT
+    
+    return cache
+  }()
+  
+  /// Returns optional image data passed by the image URL String
+  func object(forKey key: NSString) -> Data? {
+    return cache.object(forKey: key) as? Data
   }
   
-  init(config: Config = Config.defaultConfig) {
-    self.config = config
+  /// Sets image data in the cache given its image URL String
+  func set(object: NSData, forKey key: NSString) {
+    cache.setObject(object, forKey: key)
   }
 }
-/*
-extension ImageCache: ImageCacheType {
-  func image(for url: URL) -> UIImage? {
-    <#code#>
-  }
-  
-  func insertImage(_ image: UIImage?, for url: URL) {
-    <#code#>
-  }
-  
-  func removeImage(for url: URL) {
-    <#code#>
-  }
-  
-  func removeAllImages() {
-    <#code#>
-  }
-  
-  subscript(url: URL) -> UIImage? {
-    get {
-      <#code#>
-    }
-    set {
-      <#code#>
-    }
-  }
-  
-  
-}
-*/

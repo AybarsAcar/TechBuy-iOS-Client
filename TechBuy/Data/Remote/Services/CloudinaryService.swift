@@ -7,7 +7,6 @@
 
 import Foundation
 import Cloudinary
-import UIKit
 
 final class CloudinaryService: ImageService {
   
@@ -18,7 +17,7 @@ final class CloudinaryService: ImageService {
     cloudinary = CLDCloudinary(configuration: config)
   }
   
-  func getImage(byURL urlString: String) async throws -> UIImage {
+  func getImage(byURL urlString: String) async throws -> Data {
     
     guard let url = URL(string: urlString) else {
       throw APIError.invalidURL
@@ -28,11 +27,7 @@ final class CloudinaryService: ImageService {
       
       let (data, _) = try await URLSession.shared.data(from: url)
       
-      guard let image = UIImage(data: data) else {
-        throw APIError.corruptData
-      }
-      
-      return image
+      return data
       
     } catch {
       throw APIError.notFound
