@@ -17,21 +17,21 @@ struct Navbar: View {
       } label: {
         
         menuButtonShape
-      
+        
       }
       .frame(width: 30, height: 25)
-    
-    
-    Spacer()
-    
-    Button {
       
-    } label: {
-      Image(systemName: "magnifyingglass")
-        .font(.title2)
+      
+      Spacer()
+      
+      Button {
+        
+      } label: {
+        Image(systemName: "magnifyingglass")
+          .font(.title2)
+      }
+      
     }
-    
-  }
     .foregroundColor(.black)
     .overlay(
       Image.logo
@@ -39,7 +39,7 @@ struct Navbar: View {
         .frame(width: 30, height: 30)
         .scaledToFit()
     )
-}
+  }
 }
 
 extension Navbar {

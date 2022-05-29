@@ -103,9 +103,19 @@ extension HomeView {
       }
       .frame(maxWidth: .infinity, alignment: .trailing)
       
-      Image(product.productImage)
-        .resizable()
-        .aspectRatio(contentMode: .fit)
+     
+      Group {
+        if let image = product.image {
+          image
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+        }
+        else {
+          Image(systemName: "photo.on.rectangle.angled")
+            .font(.largeTitle)
+            .foregroundColor(.white)
+        }
+      }
         .matchedGeometryEffect(id: product.productImage, in: animation)
         .frame(width: 140, height: 140)
         .background(
@@ -122,7 +132,7 @@ extension HomeView {
           }
         )
       
-      Text(product.productTitle)
+      Text(product.name)
         .fontWeight(.semibold)
         .lineLimit(1)
         .padding(.top, 8)

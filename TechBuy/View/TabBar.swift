@@ -69,10 +69,7 @@ extension TabBar {
       }
       .offset(y: -30)
       .fullScreenCover(isPresented: $baseData.showBasket) {
-        Text("This is your basket")
-          .onTapGesture {
-            baseData.showBasket.toggle()
-          }
+        BasketView()
       }
       
       TabButton(tab: .clipboard)

@@ -28,5 +28,10 @@ fileprivate func buildContainer() -> Container {
   }
   .inObjectScope(.container)
   
+  container.register(ProductService.self) { _ in
+    return ProductRepository()
+  }
+  .inObjectScope(.container)
+  
   return container
 }

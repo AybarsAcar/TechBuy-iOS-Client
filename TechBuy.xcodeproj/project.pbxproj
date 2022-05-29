@@ -12,6 +12,11 @@
 		0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF4E283E34C900CF07EC /* DetailView.swift */; };
 		0010AF54283E361500CF07EC /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF53283E361500CF07EC /* Navbar.swift */; };
 		0010AF56283E39E400CF07EC /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF55283E39E400CF07EC /* View+Extensions.swift */; };
+		0098C2982842E63800737E80 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C2972842E63800737E80 /* ProductService.swift */; };
+		0098C29A2842E65100737E80 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C2992842E65100737E80 /* ProductRepository.swift */; };
+		0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29B2842E68600737E80 /* ProductResultsDTO.swift */; };
+		0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */; };
+		0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29F2842EEB900737E80 /* Double+Extensions.swift */; };
 		00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */; };
 		00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DC6283CEA70006D8B6B /* ContentView.swift */; };
 		00D36DC9283CEA72006D8B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D36DC8283CEA72006D8B6B /* Assets.xcassets */; };
@@ -31,6 +36,10 @@
 		00DB0E91283F596D005F7D4B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E90283F596D005F7D4B /* APIError.swift */; };
 		00DB0E94283F5AD0005F7D4B /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E93283F5AD0005F7D4B /* FavouritesView.swift */; };
 		00DB0E96283F5AE7005F7D4B /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E95283F5AE7005F7D4B /* FavouritesViewModel.swift */; };
+		00DB0E9B283F61AE005F7D4B /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9A283F61AE005F7D4B /* BasketView.swift */; };
+		00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9C283F6321005F7D4B /* ImageCache.swift */; };
+		00DB0EA0283F65B4005F7D4B /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0E9F283F65B4005F7D4B /* Stripe */; };
+		00DB0EA2283F65B4005F7D4B /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0EA1283F65B4005F7D4B /* StripeCardScan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +48,11 @@
 		0010AF4E283E34C900CF07EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0010AF53283E361500CF07EC /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		0010AF55283E39E400CF07EC /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		0098C2972842E63800737E80 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		0098C2992842E65100737E80 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
+		0098C29B2842E68600737E80 /* ProductResultsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultsDTO.swift; sourceTree = "<group>"; };
+		0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		0098C29F2842EEB900737E80 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		00D36DC1283CEA70006D8B6B /* TechBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechBuyApp.swift; sourceTree = "<group>"; };
 		00D36DC6283CEA70006D8B6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +71,8 @@
 		00DB0E90283F596D005F7D4B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		00DB0E93283F5AD0005F7D4B /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		00DB0E95283F5AE7005F7D4B /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		00DB0E9A283F61AE005F7D4B /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		00DB0E9C283F6321005F7D4B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB0EA2283F65B4005F7D4B /* StripeCardScan in Frameworks */,
 				00DB0E83283F55AC005F7D4B /* Cloudinary in Frameworks */,
 				00DB0E8B283F56B4005F7D4B /* Swinject in Frameworks */,
+				00DB0EA0283F65B4005F7D4B /* Stripe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +180,8 @@
 				00D36DE2283CEEA0006D8B6B /* Color+Extensions.swift */,
 				0010AF49283E245700CF07EC /* Image+Extensions.swift */,
 				0010AF55283E39E400CF07EC /* View+Extensions.swift */,
+				0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */,
+				0098C29F2842EEB900737E80 /* Double+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +206,7 @@
 			children = (
 				00D36DC6283CEA70006D8B6B /* ContentView.swift */,
 				00D36DE5283CEFA5006D8B6B /* TabBar.swift */,
+				00DB0E97283F6197005F7D4B /* Basket */,
 				0010AF50283E35FA00CF07EC /* Common */,
 				00DB0E92283F5AAF005F7D4B /* Favouries */,
 				00D36DE4283CEF91006D8B6B /* Home */,
@@ -198,6 +219,7 @@
 		00D36DD9283CEB28006D8B6B /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				00DB0E9C283F6321005F7D4B /* ImageCache.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -216,6 +238,7 @@
 		00D36DDB283CEB37006D8B6B /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				0098C29B2842E68600737E80 /* ProductResultsDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -223,6 +246,7 @@
 		00D36DDC283CEB3B006D8B6B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				0098C2992842E65100737E80 /* ProductRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -239,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				00DB0E85283F561E005F7D4B /* ImageService.swift */,
+				0098C2972842E63800737E80 /* ProductService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +310,14 @@
 			path = Favouries;
 			sourceTree = "<group>";
 		};
+		00DB0E97283F6197005F7D4B /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				00DB0E9A283F61AE005F7D4B /* BasketView.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,6 +337,8 @@
 			packageProductDependencies = (
 				00DB0E82283F55AC005F7D4B /* Cloudinary */,
 				00DB0E8A283F56B4005F7D4B /* Swinject */,
+				00DB0E9F283F65B4005F7D4B /* Stripe */,
+				00DB0EA1283F65B4005F7D4B /* StripeCardScan */,
 			);
 			productName = TechBuy;
 			productReference = 00D36DC1283CEA70006D8B6B /* TechBuy.app */;
@@ -336,6 +371,7 @@
 			packageReferences = (
 				00DB0E81283F55AC005F7D4B /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
 				00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */,
+				00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */,
 			);
 			productRefGroup = 00D36DC2283CEA70006D8B6B /* Products */;
 			projectDirPath = "";
@@ -363,18 +399,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */,
 				00DB0E96283F5AE7005F7D4B /* FavouritesViewModel.swift in Sources */,
 				0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */,
+				0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */,
 				00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */,
+				0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */,
 				00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */,
 				00D36DE1283CEBC8006D8B6B /* AccountViewModel.swift in Sources */,
 				00D36DE6283CEFA5006D8B6B /* TabBar.swift in Sources */,
 				0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */,
 				00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */,
 				00DB0E88283F564A005F7D4B /* CloudinaryService.swift in Sources */,
+				0098C2982842E63800737E80 /* ProductService.swift in Sources */,
+				0098C29A2842E65100737E80 /* ProductRepository.swift in Sources */,
 				00D36DEE283CF7A8006D8B6B /* HomeView.swift in Sources */,
+				0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */,
 				0010AF4C283E297300CF07EC /* Product.swift in Sources */,
 				0010AF56283E39E400CF07EC /* View+Extensions.swift in Sources */,
+				00DB0E9B283F61AE005F7D4B /* BasketView.swift in Sources */,
 				00DB0E8D283F56EA005F7D4B /* Resolver.swift in Sources */,
 				00DB0E8F283F56F3005F7D4B /* InjectWrapper.swift in Sources */,
 				0010AF54283E361500CF07EC /* Navbar.swift in Sources */,
@@ -601,6 +644,14 @@
 				kind = branch;
 			};
 		};
+		00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 22.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -613,6 +664,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		00DB0E9F283F65B4005F7D4B /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		00DB0EA1283F65B4005F7D4B /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeCardScan;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

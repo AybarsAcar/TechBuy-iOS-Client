@@ -83,7 +83,7 @@ struct DetailView: View {
           
           HStack {
             
-            Text(product.productTitle)
+            Text(product.name)
               .font(.title.bold())
             
             Spacer(minLength: 10)
