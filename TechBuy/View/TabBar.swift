@@ -22,7 +22,6 @@ struct TabBar: View {
     TabView(selection: $baseData.currentTab) {
       
       HomeView()
-        .environmentObject(baseData)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.opacity(0.04))
         .tag(Tab.home)

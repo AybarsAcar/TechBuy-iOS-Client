@@ -9,15 +9,17 @@ import SwiftUI
 
 struct Navbar: View {
   
+  @EnvironmentObject private var baseData: BaseViewModel
+  
   var body: some View {
     HStack {
       
       Button {
-        
+        withAnimation(.easeInOut) {
+          baseData.showSideBar = true
+        }
       } label: {
-        
         menuButtonShape
-        
       }
       .frame(width: 30, height: 25)
       
@@ -63,5 +65,7 @@ struct Navbar_Previews: PreviewProvider {
   static var previews: some View {
     Navbar()
       .previewLayout(.sizeThatFits)
+      .environmentObject(BaseViewModel())
+    
   }
 }

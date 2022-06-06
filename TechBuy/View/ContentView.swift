@@ -12,8 +12,24 @@ struct ContentView: View {
   @StateObject private var baseData = BaseViewModel()
   
   var body: some View {
-    TabBar()
-      .environmentObject(baseData)
+    ZStack {
+      TabBar()
+      
+      SidebarView(show: $baseData.showSideBar) {
+       sidebarContent
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.white)
+      }
+    }
+    .environmentObject(baseData)
+  }
+}
+
+extension ContentView {
+  private var sidebarContent: some View {
+    VStack {
+      Text("Hello, World")
+    }
   }
 }
 
