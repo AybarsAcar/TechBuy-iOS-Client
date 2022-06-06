@@ -20,6 +20,9 @@
 		0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */; };
 		0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29F2842EEB900737E80 /* Double+Extensions.swift */; };
 		00B50918284DFF4900F4EAF2 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B50917284DFF4900F4EAF2 /* SidebarView.swift */; };
+		00B5091A284E09BA00F4EAF2 /* LocalBasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B50919284E09BA00F4EAF2 /* LocalBasketRepository.swift */; };
+		00B5091C284E09C500F4EAF2 /* LocalBasketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */; };
+		00B50920284E0AB800F4EAF2 /* BasketContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00B5091E284E0AB800F4EAF2 /* BasketContainer.xcdatamodeld */; };
 		00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */; };
 		00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D36DC6283CEA70006D8B6B /* ContentView.swift */; };
 		00D36DC9283CEA72006D8B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D36DC8283CEA72006D8B6B /* Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		0098C29F2842EEB900737E80 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		00B50917284DFF4900F4EAF2 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		00B50919284E09BA00F4EAF2 /* LocalBasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBasketRepository.swift; sourceTree = "<group>"; };
+		00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBasketService.swift; sourceTree = "<group>"; };
+		00B5091F284E0AB800F4EAF2 /* BasketContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BasketContainer.xcdatamodel; sourceTree = "<group>"; };
 		00D36DC1283CEA70006D8B6B /* TechBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechBuyApp.swift; sourceTree = "<group>"; };
 		00D36DC6283CEA70006D8B6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +135,15 @@
 				00B50917284DFF4900F4EAF2 /* SidebarView.swift */,
 			);
 			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		00B5091D284E0A9600F4EAF2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				00B50919284E09BA00F4EAF2 /* LocalBasketRepository.swift */,
+				00B5091E284E0AB800F4EAF2 /* BasketContainer.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		00D36DB8283CEA70006D8B6B = {
@@ -246,6 +261,7 @@
 		00D36DD9283CEB28006D8B6B /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				00B5091D284E0A9600F4EAF2 /* CoreData */,
 				00DB0E9C283F6321005F7D4B /* ImageCache.swift */,
 			);
 			path = Local;
@@ -291,6 +307,7 @@
 			children = (
 				00DB0E85283F561E005F7D4B /* ImageService.swift */,
 				0098C2972842E63800737E80 /* ProductService.swift */,
+				00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -429,17 +446,20 @@
 				00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */,
 				00DB0E96283F5AE7005F7D4B /* CachedImageViewModel.swift in Sources */,
 				0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */,
+				00B50920284E0AB800F4EAF2 /* BasketContainer.xcdatamodeld in Sources */,
 				0004CE1728435475009D5BDD /* ProductViewModel.swift in Sources */,
 				0004CE1428433D92009D5BDD /* CachedImage.swift in Sources */,
 				0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */,
 				00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */,
 				0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */,
 				00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */,
+				00B5091C284E09C500F4EAF2 /* LocalBasketService.swift in Sources */,
 				00D36DE1283CEBC8006D8B6B /* AccountViewModel.swift in Sources */,
 				00D36DE6283CEFA5006D8B6B /* TabBar.swift in Sources */,
 				0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */,
 				00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */,
 				00DB0E88283F564A005F7D4B /* CloudinaryService.swift in Sources */,
+				00B5091A284E09BA00F4EAF2 /* LocalBasketRepository.swift in Sources */,
 				0098C2982842E63800737E80 /* ProductService.swift in Sources */,
 				0098C29A2842E65100737E80 /* ProductRepository.swift in Sources */,
 				00D36DEE283CF7A8006D8B6B /* HomeView.swift in Sources */,
@@ -714,6 +734,19 @@
 			productName = StripeCardScan;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		00B5091E284E0AB800F4EAF2 /* BasketContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				00B5091F284E0AB800F4EAF2 /* BasketContainer.xcdatamodel */,
+			);
+			currentVersion = 00B5091F284E0AB800F4EAF2 /* BasketContainer.xcdatamodel */;
+			path = BasketContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 00D36DB9283CEA70006D8B6B /* Project object */;
 }

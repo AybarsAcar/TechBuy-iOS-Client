@@ -33,5 +33,9 @@ fileprivate func buildContainer() -> Container {
   }
   .inObjectScope(.container)
   
+  container.register(LocalBasketService.self) { _ in
+    return LocalBasketRepository()
+  }
+  
   return container
 }
