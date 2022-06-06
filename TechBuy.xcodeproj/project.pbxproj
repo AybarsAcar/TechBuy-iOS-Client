@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0004CE1428433D92009D5BDD /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004CE1328433D92009D5BDD /* CachedImage.swift */; };
+		0004CE1728435475009D5BDD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004CE1628435475009D5BDD /* ProductViewModel.swift */; };
 		0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF49283E245700CF07EC /* Image+Extensions.swift */; };
 		0010AF4C283E297300CF07EC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF4B283E297300CF07EC /* Product.swift */; };
 		0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF4E283E34C900CF07EC /* DetailView.swift */; };
@@ -45,11 +46,13 @@
 
 /* Begin PBXFileReference section */
 		0004CE1328433D92009D5BDD /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		0004CE1628435475009D5BDD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		0010AF49283E245700CF07EC /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		0010AF4B283E297300CF07EC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0010AF4E283E34C900CF07EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0010AF53283E361500CF07EC /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		0010AF55283E39E400CF07EC /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		0030819C2843600B00742828 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0098C2972842E63800737E80 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		0098C2992842E65100737E80 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		0098C29B2842E68600737E80 /* ProductResultsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultsDTO.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		00D36DC3283CEA70006D8B6B /* TechBuy */ = {
 			isa = PBXGroup;
 			children = (
+				0030819C2843600B00742828 /* Info.plist */,
 				00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */,
 				00D36DC8283CEA72006D8B6B /* Assets.xcassets */,
 				00D36DD2283CEAF5006D8B6B /* Data */,
@@ -301,6 +305,7 @@
 		00D36DE7283CEFC8006D8B6B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0004CE1628435475009D5BDD /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */,
 				00DB0E96283F5AE7005F7D4B /* CachedImageViewModel.swift in Sources */,
 				0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */,
+				0004CE1728435475009D5BDD /* ProductViewModel.swift in Sources */,
 				0004CE1428433D92009D5BDD /* CachedImage.swift in Sources */,
 				0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */,
 				00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */,
@@ -569,9 +575,13 @@
 				DEVELOPMENT_TEAM = QH7853B55W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechBuy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TechBuy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -598,9 +608,13 @@
 				DEVELOPMENT_TEAM = QH7853B55W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechBuy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TechBuy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

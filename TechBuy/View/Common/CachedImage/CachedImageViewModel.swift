@@ -5,7 +5,7 @@
 //  Created by Aybars Acar on 26/5/2022.
 //
 
-import UIKit
+import Foundation
 
 final class CachedImageViewModel: ObservableObject {
   

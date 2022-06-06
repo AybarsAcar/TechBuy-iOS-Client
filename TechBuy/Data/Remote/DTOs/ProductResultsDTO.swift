@@ -41,6 +41,16 @@ extension ProductDTO {
   
   /// Maps the Product DTO into a Product Model for UI use
   func toProduct() -> Product {
-    return Product(id: self.id, productImage: "", name: "", price: 0, productRating: 1)
+    return Product(
+      id: self.id,
+      imageURL: self.imageURL,
+      name: self.name,
+      description: self.description,
+      price: self.price,
+      isLiked: false,
+      productRating: 4,
+      productType: self.productType,
+      productBrand: self.productBrand
+    )
   }
 }

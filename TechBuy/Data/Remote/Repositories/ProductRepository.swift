@@ -11,25 +11,33 @@ final class ProductRepository: ProductService {
   
   private let domain: String = "http://127.0.0.1:5000/api"
   
+  init() {
+    
+  }
+  
   func getProducts(_ pageParams: PageParams, orderBy order: SortDescriptor? = nil, productType: Int? = nil, productBrand: Int? = nil) async throws -> ProductResultsDTO {
     
-    var componets = URLComponents()
-    componets.scheme = "http"
-    componets.host = "127.0.0.1:5000/api"
-    componets.path = "products"
-    componets.queryItems = [
-      URLQueryItem(name: "PageIndex", value: String(pageParams.pageIndex)),
-      URLQueryItem(name: "PageSize", value: String(pageParams.pageSize)),
-      URLQueryItem(name: "Sort", value: order?.rawValue)
-    ]
+//    var componets = URLComponents()
+//    componets.scheme = "http"
+//    componets.host = "127.0.0.1:5000/api"
+//    componets.path = "products"
+//    componets.queryItems = [
+//      URLQueryItem(name: "PageIndex", value: String(pageParams.pageIndex)),
+//      URLQueryItem(name: "PageSize", value: String(pageParams.pageSize)),
+//      URLQueryItem(name: "Sort", value: order?.rawValue)
+//    ]
+//
+//    guard let url = componets.url else {
+//      throw APIError.invalidURL
+//    }
     
-    guard let url = componets.url else {
+    guard let url = URL(string: "https://dev-tech-buy.herokuapp.com/api/products?sort=priceDesc&pageSize=20&pageIndex=1") else {
       throw APIError.invalidURL
     }
     
     do {
       let (data, response) = try await URLSession.shared.data(from: url)
-      
+
       guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 else {
         throw APIError.invalidResponseStatus
       }
@@ -44,10 +52,14 @@ final class ProductRepository: ProductService {
         return productsResult
         
       } catch {
+        print(error)
         throw APIError.decodingError(error.localizedDescription)
       }
       
     } catch {
+      print("\n\n\n\n\n\n\n")
+      print(error)
+      print("\n\n\n\n\n\n\n")
       throw APIError.dataTaskError(error.localizedDescription)
     }
   }

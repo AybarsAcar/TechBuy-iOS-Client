@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Component that retrieves the Cached Image if the image exists in the cache
+/// Fetched the Image and caches if it doesn't exist in the cache
 struct CachedImage<Content: View>: View {
   
   @StateObject private var viewModel = CachedImageViewModel()

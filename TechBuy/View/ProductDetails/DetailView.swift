@@ -61,10 +61,27 @@ struct DetailView: View {
         .padding(.bottom)
         
         // image
-        Image(product.productImage)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .matchedGeometryEffect(id: product.productImage, in: animation)
+        CachedImage(withURL: product.imageURL, transition: .scale.combined(with: .opacity)) { state in
+          switch state {
+          case .empty:
+            ProgressView()
+              .background(.blue, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+            
+          case .success(let image):
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+          
+          case .failure:
+            Image(systemName: "photo.on.rectangle.angled")
+              .font(.largeTitle)
+              .foregroundColor(.white)
+            
+          @unknown default:
+            fatalError()
+          }
+        }
+        .matchedGeometryEffect(id: product.id, in: animation)
           .frame(width: 250, height: 250)
           .background(
             ZStack {
@@ -96,7 +113,7 @@ struct DetailView: View {
 
           }
           
-          Text(product.dummyText)
+          Text(product.description)
             .font(.callout)
             .lineSpacing(10)
           

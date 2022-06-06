@@ -12,6 +12,7 @@ struct HomeView: View {
   // matched geometry effect
   @Namespace var animation
   @EnvironmentObject private var baseData: BaseViewModel
+  @StateObject private var productVM = ProductViewModel()
   
   var body: some View {
     
@@ -65,7 +66,7 @@ struct HomeView: View {
         LazyVGrid(columns: columns, spacing: 18) {
           
           // Products...
-          ForEach(Product.dummyData) { product in
+          ForEach(productVM.products) { product in
             CardView(product: product)
               .onTapGesture {
                 withAnimation {
@@ -104,19 +105,27 @@ extension HomeView {
       .frame(maxWidth: .infinity, alignment: .trailing)
       
      
-      Group {
-        if let image = product.image {
+      CachedImage(withURL: product.imageURL, transition: .scale.combined(with: .opacity)) { state in
+        switch state {
+        case .empty:
+          ProgressView()
+            .background(.blue, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+          
+        case .success(let image):
           image
             .resizable()
             .aspectRatio(contentMode: .fit)
-        }
-        else {
+        
+        case .failure:
           Image(systemName: "photo.on.rectangle.angled")
             .font(.largeTitle)
             .foregroundColor(.white)
+          
+        @unknown default:
+          fatalError()
         }
       }
-        .matchedGeometryEffect(id: product.productImage, in: animation)
+        .matchedGeometryEffect(id: product.id, in: animation)
         .frame(width: 140, height: 140)
         .background(
           ZStack {
