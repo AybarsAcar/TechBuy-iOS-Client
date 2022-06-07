@@ -32,7 +32,9 @@ struct TabBar: View {
       Text("Clipboard")
         .tag(Tab.clipboard)
       
-      Text("Person")
+      ProfileView()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.04))
         .tag(Tab.person)
       
     }

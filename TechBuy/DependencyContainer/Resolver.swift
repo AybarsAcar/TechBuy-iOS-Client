@@ -37,5 +37,9 @@ fileprivate func buildContainer() -> Container {
     return LocalBasketRepository()
   }
   
+  container.register(AccountService.self) { _ in
+    return AccountRepository()
+  }
+  
   return container
 }

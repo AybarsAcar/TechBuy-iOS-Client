@@ -9,7 +9,7 @@ import Foundation
 
 final class ProductRepository: ProductService {
   
-  private let domain: String = "http://127.0.0.1:5000/api"
+  private let domain: String = "https://dev-tech-buy.herokuapp.com/api"
   
   init() {
     

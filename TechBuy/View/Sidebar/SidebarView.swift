@@ -26,7 +26,6 @@ struct SidebarView<Content: View>: View {
       tintedBackground
       
       content
-        .frame(width: 2 * (screenWidth / 3))
         .offset(x: show ? 0 + contentXOffsett : -screenWidth)
         .gesture(
           DragGesture()
@@ -38,9 +37,9 @@ struct SidebarView<Content: View>: View {
             .onEnded { value in
               withAnimation(.easeInOut) {
                 if value.translation.width < -60 {
-                    show = false
+                  show = false
                 }
-  
+                
                 contentXOffsett = .zero
               }
             }

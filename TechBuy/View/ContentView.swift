@@ -16,9 +16,10 @@ struct ContentView: View {
       TabBar()
       
       SidebarView(show: $baseData.showSideBar) {
-       sidebarContent
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
+        sidebarContent
+          .frame(width: 2 * (UIScreen.main.bounds.width / 3))
+          .frame(maxHeight: .infinity)
+          .background(.white)
       }
     }
     .environmentObject(baseData)
@@ -27,9 +28,45 @@ struct ContentView: View {
 
 extension ContentView {
   private var sidebarContent: some View {
-    VStack {
-      Text("Hello, World")
+    VStack(alignment: .leading) {
+      HStack(spacing: 18) {
+        Image.logo
+          .resizable()
+          .frame(width: 30, height: 30)
+          .scaledToFit()
+        
+        Text("TechBuy")
+          .font(.title)
+          .fontWeight(.thin)
+      }
+      
+      Spacer()
+      
+      // links
+      VStack(spacing: 30) {
+        Label("Help", systemImage: "questionmark.circle")
+        Label("Help", systemImage: "questionmark.circle")
+        Label("Help", systemImage: "questionmark.circle")
+      }
+      .font(.title2)
+      
+      Spacer()
+      
+      Label("Help", systemImage: "questionmark.circle")
+        .font(.title3)
+        
+      Spacer()
+      
+      Text("""
+Copyright © TechBuy
+All Rights Reserved
+"""
+      )
+      .font(.footnote)
+      .foregroundColor(.secondary)
     }
+    .frame(maxWidth: .infinity)
+    .padding(.top, 20)
   }
 }
 

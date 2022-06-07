@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Color {
   static let theme = AppColorTheme()
+  static let googleTheme = GoogleTheme()
 }
 
 struct AppColorTheme {
@@ -19,4 +20,9 @@ struct AppColorTheme {
   let palePink = Color("PalePink")
   let paleYellow = Color("PaleYellow")
   let actionColor = Color("OrangeAction")
+}
+
+struct GoogleTheme {
+  let red = Color("GoogleRed")
+  let blue = Color("GoogleBlue")
 }
