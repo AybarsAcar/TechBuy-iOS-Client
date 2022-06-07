@@ -14,8 +14,8 @@ protocol ProductService {
   func getProducts(
     _ pageParams: PageParams,
     orderBy order: SortDescriptor?,
-    productType: Int?,
-    productBrand: Int?
+    productType: String?,
+    productBrand: String?
   ) async throws -> ProductResultsDTO
  
   /// Search for products by a given query

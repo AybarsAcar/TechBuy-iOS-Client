@@ -17,7 +17,7 @@ final class BaseViewModel: ObservableObject {
   
   @Published var showSideBar = false
   
-  @Published var homeTab = "Sneakers"
+
   
   // Detail View properties
   @Published var currentProduct: Product?
@@ -26,8 +26,8 @@ final class BaseViewModel: ObservableObject {
 
 // tab items
 enum Tab: String {
-case home = "house"
-case heart = "heart.fill"
-case clipboard = "rectangle.grid.3x2.fill"
-case person = "person.fill"
+  case home = "house"
+  case heart = "heart.fill"
+  case clipboard = "rectangle.grid.3x2.fill"
+  case person = "person.fill"
 }

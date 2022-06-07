@@ -50,12 +50,9 @@ struct HomeView: View {
           HStack(spacing: 18) {
             
             // segment button - this will be product filters
-            SegmentButton(image: .laptop, title: "Laptops")
-            SegmentButton(image: .phone, title: "Phones")
-            SegmentButton(image: .tablet, title: "Tablets")
-            SegmentButton(image: .watch, title: "Watches")
-            SegmentButton(image: .headphone, title: "Headphones")
-            SegmentButton(image: .electronics, title: "Other")
+            ForEach(ProductType.allCases, id: \.rawValue) { type in
+              SegmentButton(image: type.image, type: type)
+            }
           }
           .padding(.vertical)
         }
@@ -86,7 +83,6 @@ struct HomeView: View {
 }
 
 extension HomeView {
-
   
   @ViewBuilder
   private func CardView(product: Product) -> some View {
@@ -168,11 +164,14 @@ extension HomeView {
   }
   
   @ViewBuilder
-  private func SegmentButton(image: Image, title: String) -> some View {
+  private func SegmentButton(image: Image, type: ProductType) -> some View {
     
     Button {
       withAnimation {
-        baseData.homeTab = title
+        productVM.selectedProductType = type
+      }
+      Task {
+        await productVM.loadProducts()
       }
     } label: {
       
@@ -182,7 +181,7 @@ extension HomeView {
           .aspectRatio(contentMode: .fit)
           .frame(width: 27, height: 27)
         
-        Text(title)
+        Text(type.rawValue)
           .font(.system(size: 12.5))
           .fontWeight(.bold)
           .foregroundColor(.black)
@@ -194,7 +193,7 @@ extension HomeView {
       
         ZStack {
           // Transition Slider
-          if baseData.homeTab == title {
+          if productVM.selectedProductType == type {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
               .fill(.white)
               .matchedGeometryEffect(id: "TAB", in: animation)
@@ -204,8 +203,8 @@ extension HomeView {
         
       )
     }
-
   }
+  
 }
 
 struct HomeView_Previews: PreviewProvider {

@@ -15,26 +15,24 @@ final class ProductRepository: ProductService {
     
   }
   
-  func getProducts(_ pageParams: PageParams, orderBy order: SortDescriptor? = nil, productType: Int? = nil, productBrand: Int? = nil) async throws -> ProductResultsDTO {
+  func getProducts(_ pageParams: PageParams, orderBy order: SortDescriptor? = nil, productType: String? = nil, productBrand: String? = nil) async throws -> ProductResultsDTO {
     
-//    var componets = URLComponents()
-//    componets.scheme = "http"
-//    componets.host = "127.0.0.1:5000/api"
-//    componets.path = "products"
-//    componets.queryItems = [
-//      URLQueryItem(name: "PageIndex", value: String(pageParams.pageIndex)),
-//      URLQueryItem(name: "PageSize", value: String(pageParams.pageSize)),
-//      URLQueryItem(name: "Sort", value: order?.rawValue)
-//    ]
-//
-//    guard let url = componets.url else {
-//      throw APIError.invalidURL
-//    }
-    
-    guard let url = URL(string: "https://dev-tech-buy.herokuapp.com/api/products?sort=priceDesc&pageSize=20&pageIndex=1") else {
+    // build URL
+    var componets = URLComponents()
+    componets.scheme = "https"
+    componets.host = "dev-tech-buy.herokuapp.com"
+    componets.path = "/api/products"
+    componets.queryItems = [
+      URLQueryItem(name: "pageIndex", value: String(pageParams.pageIndex)),
+      URLQueryItem(name: "pageSize", value: String(pageParams.pageSize)),
+      URLQueryItem(name: "sort", value: order?.rawValue),
+      URLQueryItem(name: "typeId", value: productType)
+    ]
+
+    guard let url = componets.url else {
       throw APIError.invalidURL
     }
-    
+
     do {
       let (data, response) = try await URLSession.shared.data(from: url)
 

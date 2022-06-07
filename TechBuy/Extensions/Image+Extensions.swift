@@ -15,6 +15,7 @@ extension Image {
   static let laptop = Image("laptop")
   static let headphone = Image("headphone")
   static let watch = Image("watch")
+  static let all = Image("all-electronics")
 }
 
 extension UIImage {

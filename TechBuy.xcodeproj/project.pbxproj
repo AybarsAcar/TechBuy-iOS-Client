@@ -272,7 +272,6 @@
 		00D36DD8283CEB09006D8B6B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0031200B284F24B1007D2DEB /* Profile */,
 				00D36DC6283CEA70006D8B6B /* ContentView.swift */,
 				00D36DE5283CEFA5006D8B6B /* TabBar.swift */,
 				00DB0E97283F6197005F7D4B /* Basket */,
@@ -280,6 +279,7 @@
 				00DB0E92283F5AAF005F7D4B /* Favouries */,
 				00D36DE4283CEF91006D8B6B /* Home */,
 				0010AF4D283E34B600CF07EC /* ProductDetails */,
+				0031200B284F24B1007D2DEB /* Profile */,
 				00B50916284DFF4000F4EAF2 /* Sidebar */,
 				00D36DDF283CEBA1006D8B6B /* ViewModel */,
 			);

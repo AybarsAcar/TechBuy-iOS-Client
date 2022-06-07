@@ -29,3 +29,51 @@ struct Product: Identifiable, Codable {
     return colors.randomElement() ?? .theme.palePink
   }
 }
+
+enum ProductType: String, CaseIterable {
+  case all = "All"
+  case laptop = "Laptops"
+  case phone = "Phones"
+  case tablet = "Tablets"
+  case watch = "Watches"
+  case headphone = "Headphones"
+  case other = "Other"
+  
+  var image: Image {
+    switch self {
+    case .all:
+      return .all
+    case .laptop:
+      return Image.laptop
+    case .phone:
+      return Image.phone
+    case .tablet:
+      return Image.tablet
+    case .watch:
+      return Image.watch
+    case .headphone:
+      return Image.headphone
+    case .other:
+      return Image.electronics
+    }
+  }
+  
+  var identifier: String? {
+    switch self {
+    case .all:
+      return nil
+    case .laptop:
+      return "4"
+    case .phone:
+      return "3"
+    case .tablet:
+      return "2"
+    case .watch:
+      return "1"
+    case .headphone:
+      return "5"
+    case .other:
+      return "6"
+    }
+  }
+}

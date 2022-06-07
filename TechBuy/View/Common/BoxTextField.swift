@@ -14,7 +14,6 @@ struct BoxTextField: View {
   }
   
   @Binding var text: String
-  @FocusState var isFocused: Bool
   
   let placeholder: String
   let color: Color
@@ -45,7 +44,6 @@ extension BoxTextField {
     HStack {
       TextField(placeholder, text: $text)
         .textInputAutocapitalization(.never)
-//        .focused($isFocused)
         .padding()
     }
     .frame(height: 55)
@@ -61,14 +59,12 @@ extension BoxTextField {
         TextField(placeholder, text: $text)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
-//          .focused($isFocused)
           .padding()
       }
       else {
         SecureField(placeholder, text: $text)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
-//          .focused($isFocused)
           .padding()
       }
       
