@@ -44,17 +44,20 @@ final class AccountRepository: AccountService {
       let decoder = JSONDecoder()
       
       do {
+        print("DATA")
         print(data)
         
         return try decoder.decode(AccountDTO.self, from: data)
         
       } catch {
+        print("ERROR")
         print(error)
         throw APIError.decodingError(error.localizedDescription)
       }
       
     } catch {
       print(error)
+      print("ERROR")
       throw APIError.dataTaskError(error.localizedDescription)
     }
   }

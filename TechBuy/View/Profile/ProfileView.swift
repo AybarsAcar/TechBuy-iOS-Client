@@ -9,7 +9,14 @@ import SwiftUI
 
 struct ProfileView: View {
   
+  enum FocusField {
+    case email, password
+  }
+  @FocusState private var focusedField: FocusField?
+  
   @EnvironmentObject private var viewModel: AccountViewModel
+  
+  @State private var showLoginSection = true
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -17,37 +24,8 @@ struct ProfileView: View {
         Navbar()
           .padding(.bottom)
         
-        registerSection
-        
-        separator
-          .padding(.vertical)
-        
         loginSection
         
-        separator
-          .padding(.vertical)
-        
-        Button {
-          
-        } label: {
-          Text("Login with Google")
-            .font(.headline)
-            .foregroundColor(.googleTheme.red)
-            .frame(height: 55)
-            .frame(maxWidth: .infinity)
-            .background(
-              Image("google-logo")
-                .resizable()
-                .frame(width: 44, height: 44)
-                .padding(.leading, 20),
-              
-              alignment: .leading
-            )
-            .background(.white)
-            .clipShape(Capsule())
-            .shadow(color: .googleTheme.blue, radius: 1, x: 0, y: 2)
-        }
-        .buttonStyle(.withBoxPressableButtonStyle)
       }
       .padding()
       .padding(.bottom, 100)
@@ -74,6 +52,7 @@ extension ProfileView {
   
   private var registerSection: some View {
     Group {
+      
       Text("Register")
         .font(.title.bold())
       
@@ -106,21 +85,80 @@ extension ProfileView {
         .font(.title.bold())
       
       BoxTextField("Email *", text: $viewModel.email)
+        .focused($focusedField, equals: .email)
+      
       BoxTextField("Password *", text: $viewModel.password, type: .secure)
+        .focused($focusedField, equals: .password)
+      
+      Button {
+        loginButtonClicked()
+      } label: {
+        Group {
+          if viewModel.loading {
+            ProgressView()
+          }
+          else {
+            Text("Login".uppercased())
+          }
+        }
+        .font(.headline)
+        .foregroundColor(.theme.actionColor)
+        .frame(height: 55)
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .clipShape(Capsule())
+        .shadow(color: .theme.actionColor, radius: 1, x: 0, y: 2)
+      }
+      .buttonStyle(.withBoxPressableButtonStyle)
+      
+      Text("Forgot your password?")
+        .foregroundColor(.secondary)
+        .font(.caption)
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .trailing)
+      
+      separator
+        .padding(.vertical)
       
       Button {
         
       } label: {
-        Text("Login".uppercased())
+        Text("Login with Google")
           .font(.headline)
-          .foregroundColor(.theme.actionColor)
+          .foregroundColor(.googleTheme.red)
           .frame(height: 55)
           .frame(maxWidth: .infinity)
+          .background(
+            Image("google-logo")
+              .resizable()
+              .frame(width: 44, height: 44)
+              .padding(.leading, 20),
+            
+            alignment: .leading
+          )
           .background(.white)
           .clipShape(Capsule())
-          .shadow(color: .theme.actionColor, radius: 1, x: 0, y: 2)
+          .shadow(color: .googleTheme.blue, radius: 1, x: 0, y: 2)
       }
       .buttonStyle(.withBoxPressableButtonStyle)
+    }
+  }
+}
+
+// MARK: - Handlers
+extension ProfileView {
+  
+  func loginButtonClicked() {
+    if viewModel.email.isEmpty {
+      focusedField = .email
+    }
+    else if viewModel.password.isEmpty {
+      focusedField = .password
+    }
+    else {
+      Task {
+        await viewModel.login()
+      }
     }
   }
 }

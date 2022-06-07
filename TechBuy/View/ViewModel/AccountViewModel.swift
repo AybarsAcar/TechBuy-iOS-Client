@@ -11,30 +11,25 @@ import SwiftUI
 final class AccountViewModel: ObservableObject {
   
   @Published private(set) var account: Account?
-
+  
   @Published var displayName = ""
   @Published var username = ""
   @Published var email = ""
   @Published var password = ""
   @Published var confirmPassword = ""
-
+  
   @Published var loading = false
   @Published var showAlert = false
   @Published var errorMessage = ""
   
   @Inject private var service: AccountService
   
+  @MainActor
   func login() async {
     
-    guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
+    guard !email.isEmpty, !password.isEmpty else {
       showAlert = true
       errorMessage = "All fields are requierd to register an account."
-      return
-    }
-    
-    guard password == confirmPassword else {
-      showAlert = true
-      errorMessage = "Passwords do not match."
       return
     }
     
@@ -47,10 +42,8 @@ final class AccountViewModel: ObservableObject {
     do {
       let accountDTO = try await service.login(with: LoginFormValues(email: email, password: password))
       
-      await MainActor.run {
-        withAnimation(.easeInOut) {
-          account = accountDTO.toAccount()
-        }
+      withAnimation(.easeInOut) {
+        account = accountDTO.toAccount()
       }
       
       // clear the form values

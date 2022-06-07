@@ -29,7 +29,6 @@ struct BoxTextField: View {
   
   @State private var secure: Bool = true
   
-  
   var body: some View {
     switch type {
     case .plain:
@@ -46,7 +45,7 @@ extension BoxTextField {
     HStack {
       TextField(placeholder, text: $text)
         .textInputAutocapitalization(.never)
-        .focused($isFocused)
+//        .focused($isFocused)
         .padding()
     }
     .frame(height: 55)
@@ -62,14 +61,14 @@ extension BoxTextField {
         TextField(placeholder, text: $text)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
-          .focused($isFocused)
+//          .focused($isFocused)
           .padding()
       }
       else {
         SecureField(placeholder, text: $text)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
-          .focused($isFocused)
+//          .focused($isFocused)
           .padding()
       }
       
