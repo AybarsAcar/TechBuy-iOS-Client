@@ -25,7 +25,7 @@ struct ProfileView: View {
           .padding(.bottom)
         
         loginSection
-        
+   
       }
       .padding()
       .padding(.bottom, 100)
@@ -95,7 +95,7 @@ extension ProfileView {
       } label: {
         Group {
           if viewModel.loading {
-            ProgressView()
+            LottieView(.loading2)
           }
           else {
             Text("Login".uppercased())

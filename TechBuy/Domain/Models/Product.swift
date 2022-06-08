@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - Product Model
 struct Product: Identifiable, Codable {
   var id: Int
   var imageURL: String
@@ -30,6 +31,7 @@ struct Product: Identifiable, Codable {
   }
 }
 
+// MARK: - ProductType Enum
 enum ProductType: String, CaseIterable {
   case all = "All"
   case laptop = "Laptops"
