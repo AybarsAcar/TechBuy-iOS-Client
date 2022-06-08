@@ -57,9 +57,10 @@ final class AccountViewModel: ObservableObject {
       // save the user into the local device db
       
     } catch {
-      print("ERROR\n\(error)")
-      showAlert = true
-      errorMessage = error.localizedDescription
+      withAnimation(.linear(duration: 0.2)) {
+        showAlert = true
+        errorMessage = error.localizedDescription
+      }
     }
   }
 }

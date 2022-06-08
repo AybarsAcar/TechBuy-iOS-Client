@@ -26,6 +26,8 @@
 		005547C428501EAA003EE213 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 005547C328501EAA003EE213 /* Lottie */; };
 		005547C628501EBF003EE213 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005547C528501EBF003EE213 /* LottieView.swift */; };
 		005547C8285020FE003EE213 /* loading-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 005547C7285020FE003EE213 /* loading-2.json */; };
+		005547CB285029A9003EE213 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005547CA285029A9003EE213 /* CustomAlertView.swift */; };
+		005547CD28502B02003EE213 /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005547CC28502B02003EE213 /* Snackbar.swift */; };
 		0098C2982842E63800737E80 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C2972842E63800737E80 /* ProductService.swift */; };
 		0098C29A2842E65100737E80 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C2992842E65100737E80 /* ProductRepository.swift */; };
 		0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29B2842E68600737E80 /* ProductResultsDTO.swift */; };
@@ -80,6 +82,8 @@
 		005547BF28501DD9003EE213 /* loading-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-1.json"; sourceTree = "<group>"; };
 		005547C528501EBF003EE213 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		005547C7285020FE003EE213 /* loading-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-2.json"; sourceTree = "<group>"; };
+		005547CA285029A9003EE213 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		005547CC28502B02003EE213 /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		0098C2972842E63800737E80 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		0098C2992842E65100737E80 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		0098C29B2842E68600737E80 /* ProductResultsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultsDTO.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		0010AF50283E35FA00CF07EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				005547C928502997003EE213 /* CustomAlert */,
 				0031200E284F3A0A007D2DEB /* BoxTextField.swift */,
 				0010AF53283E361500CF07EC /* Navbar.swift */,
 				0004CE1528433FC8009D5BDD /* CachedImage */,
@@ -188,6 +193,15 @@
 				005547C528501EBF003EE213 /* LottieView.swift */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		005547C928502997003EE213 /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				005547CA285029A9003EE213 /* CustomAlertView.swift */,
+				005547CC28502B02003EE213 /* Snackbar.swift */,
+			);
+			path = CustomAlert;
 			sourceTree = "<group>";
 		};
 		00B50916284DFF4000F4EAF2 /* Sidebar */ = {
@@ -524,6 +538,7 @@
 				0004CE1428433D92009D5BDD /* CachedImage.swift in Sources */,
 				00312011284F42AA007D2DEB /* BoxPressableButtonStyle.swift in Sources */,
 				0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */,
+				005547CD28502B02003EE213 /* Snackbar.swift in Sources */,
 				00D36DEB283CF337006D8B6B /* CustomCurveShape.swift in Sources */,
 				005547C628501EBF003EE213 /* LottieView.swift in Sources */,
 				0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */,
@@ -552,6 +567,7 @@
 				00DB0E8F283F56F3005F7D4B /* InjectWrapper.swift in Sources */,
 				0010AF54283E361500CF07EC /* Navbar.swift in Sources */,
 				00D36DE3283CEEA0006D8B6B /* Color+Extensions.swift in Sources */,
+				005547CB285029A9003EE213 /* CustomAlertView.swift in Sources */,
 				00D36DE9283CEFD4006D8B6B /* BaseViewModel.swift in Sources */,
 				00DB0E94283F5AD0005F7D4B /* FavouritesView.swift in Sources */,
 				00DB0E86283F561E005F7D4B /* ImageService.swift in Sources */,

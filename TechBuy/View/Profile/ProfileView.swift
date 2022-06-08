@@ -30,6 +30,7 @@ struct ProfileView: View {
       .padding()
       .padding(.bottom, 100)
     }
+    .snackbarAlert(viewModel.errorMessage, isPresented: $viewModel.showAlert, type: .error)
   }
 }
 

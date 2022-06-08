@@ -20,6 +20,8 @@ struct AppColorTheme {
   let palePink = Color("PalePink")
   let paleYellow = Color("PaleYellow")
   let actionColor = Color("OrangeAction")
+  let successColor = Color("SuccessColor")
+  let alertColor = Color("AlertColor")
 }
 
 struct GoogleTheme {
