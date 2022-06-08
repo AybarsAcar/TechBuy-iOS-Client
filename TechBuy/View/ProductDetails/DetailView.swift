@@ -81,18 +81,18 @@ struct DetailView: View {
           }
         }
         .matchedGeometryEffect(id: product.id, in: animation)
-          .frame(width: 250, height: 250)
-          .background(
-            ZStack {
-              Circle()
-                .fill(product.productBG)
-              
-              Circle()
-                .fill(.white.opacity(0.5))
-                .padding(60)
-            }
-          )
-          .frame(height: getScreenBounds().height / 3)
+        .frame(width: 250, height: 250)
+        .background(
+          ZStack {
+            Circle()
+              .fill(product.productBG)
+            
+            Circle()
+              .fill(.white.opacity(0.5))
+              .padding(60)
+          }
+        )
+        .frame(height: getScreenBounds().height / 3)
         
         // product details
         VStack(alignment: .leading, spacing: 15) {

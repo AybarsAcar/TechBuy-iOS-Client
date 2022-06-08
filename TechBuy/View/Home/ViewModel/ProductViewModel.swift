@@ -13,6 +13,8 @@ final class ProductViewModel: ObservableObject {
   @Published var selectedProductType: ProductType = .all
   @Published private(set) var sortDescriptor: SortDescriptor = .default
   
+  @Published private(set) var loading = false
+  
   @Inject private var productRepository: ProductService
   
   init() {
@@ -29,14 +31,19 @@ final class ProductViewModel: ObservableObject {
     }
   }
   
+  @MainActor
   func loadProducts() async {
+    loading = true
+    
+    defer {
+      loading = false
+    }
+    
     do {
       let response = try await productRepository.getProducts(PageParams(pageIndex: 1, pageSize: 20), orderBy: sortDescriptor, productType: selectedProductType.identifier, productBrand: nil)
       
-      await MainActor.run {
-        products = response.data.compactMap { dto in
-          dto.toProduct()
-        }
+      products = response.data.compactMap { dto in
+        dto.toProduct()
       }
       
     } catch {
