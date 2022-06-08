@@ -67,6 +67,16 @@ extension TabBar {
           .background(Color.theme.main)
           .clipShape(Circle())
           .shadow(color: .black.opacity(0.04), radius: 5, x: -5, y: -5)
+          .overlay(
+            Text("2")
+              .font(.footnote)
+              .foregroundColor(.white)
+              .padding(12)
+              .background(Color.theme.actionColor)
+              .clipShape(Circle())
+              .offset(x: 10,y: -10)
+            , alignment: .topTrailing
+          )
       }
       .offset(y: -30)
       .fullScreenCover(isPresented: $baseData.showBasket) {

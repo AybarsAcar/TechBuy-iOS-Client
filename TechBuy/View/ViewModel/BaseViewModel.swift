@@ -17,11 +17,19 @@ final class BaseViewModel: ObservableObject {
   
   @Published var showSideBar = false
   
-
-  
   // Detail View properties
-  @Published var currentProduct: Product?
-  @Published var showDetail = false
+  @Published private(set) var currentProduct: Product?
+  @Published private(set) var showDetail = false
+  
+  public func dismissDetailView() {
+    currentProduct = nil
+    showDetail = false
+  }
+  
+  public func navigate(to product: Product) {
+    currentProduct = product
+    showDetail = true
+  }
 }
 
 // tab items

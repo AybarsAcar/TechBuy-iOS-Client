@@ -28,8 +28,7 @@ struct DetailView: View {
           
           Button {
             withAnimation {
-              baseData.showDetail = false
-              baseData.currentProduct = nil
+              baseData.dismissDetailView()
             }
           } label: {
             Image(systemName: "arrow.left")
@@ -175,7 +174,9 @@ struct DetailView: View {
           
           // Add to cart
           Button {
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+              baseData.dismissDetailView()
+            }
           } label: {
             HStack(spacing: 15) {
               VStack {
@@ -191,7 +192,7 @@ struct DetailView: View {
               
               Spacer()
               
-              Text("Buy Now")
+              Text("Add to Basket")
                 .font(.title2)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .center)

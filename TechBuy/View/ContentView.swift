@@ -14,6 +14,7 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       TabBar()
+        .environmentObject(baseData)
       
       SidebarView(show: $baseData.showSideBar) {
         sidebarContent
@@ -22,7 +23,6 @@ struct ContentView: View {
           .background(.white)
       }
     }
-    .environmentObject(baseData)
   }
 }
 
@@ -62,7 +62,7 @@ Copyright © TechBuy
 All Rights Reserved
 """
       )
-      .font(.footnote)
+      .font(.caption2)
       .foregroundColor(.secondary)
     }
     .frame(maxWidth: .infinity)

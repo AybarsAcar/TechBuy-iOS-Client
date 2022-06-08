@@ -14,6 +14,8 @@ struct HomeView: View {
   @EnvironmentObject private var baseData: BaseViewModel
   @StateObject private var productVM = ProductViewModel()
   
+  @State private var showOptions = false
+  
   var body: some View {
     
     ScrollView(.vertical, showsIndicators: false) {
@@ -29,18 +31,34 @@ struct HomeView: View {
           Spacer()
           
           Button {
-            
+            switch productVM.sortDescriptor {
+            case .default:
+              productVM.sort(by: .priceAscending)
+            case .priceAscending:
+              productVM.sort(by: .priceDescending)
+            case .priceDescending:
+              productVM.sort(by: .default)
+            }
           } label: {
             HStack(spacing: 3) {
-              Text("Sort by")
+              Group {
+                switch productVM.sortDescriptor {
+                case .default:
+                 Text("Sort by")
+                case .priceAscending:
+                  Text("Price ascending")
+                case .priceDescending:
+                  Text("Price descending")
+                }
+              }
                 .font(.caption.bold())
               
               Image(systemName: "chevron.down")
+                .rotationEffect(.degrees(showOptions ? 180 : 0))
                 .font(.caption.bold())
             }
             .foregroundColor(.secondary)
           }
-
         }
         .padding(.top, 25)
         
@@ -67,8 +85,7 @@ struct HomeView: View {
             CardView(product: product)
               .onTapGesture {
                 withAnimation {
-                  baseData.currentProduct = product
-                  baseData.showDetail = true
+                  baseData.navigate(to: product)
                 }
               }
           }
@@ -100,7 +117,7 @@ extension HomeView {
       }
       .frame(maxWidth: .infinity, alignment: .trailing)
       
-     
+      
       CachedImage(withURL: product.imageURL, transition: .scale.combined(with: .opacity)) { state in
         switch state {
         case .empty:
@@ -111,7 +128,7 @@ extension HomeView {
           image
             .resizable()
             .aspectRatio(contentMode: .fit)
-        
+          
         case .failure:
           Image(systemName: "photo.on.rectangle.angled")
             .font(.largeTitle)
@@ -121,21 +138,21 @@ extension HomeView {
           fatalError()
         }
       }
-        .matchedGeometryEffect(id: product.id, in: animation)
-        .frame(width: 140, height: 140)
-        .background(
-          ZStack {
-            Circle()
-              .fill(product.productBG)
-              .padding(14)
-              .offset(x: 12, y: -18)
-            
-            Circle()
-              .stroke(Color.white, lineWidth: 1.4)
-              .padding(24)
-              .offset(x: 12, y: -18)
-          }
-        )
+      .matchedGeometryEffect(id: product.id, in: animation)
+      .frame(width: 140, height: 140)
+      .background(
+        ZStack {
+          Circle()
+            .fill(product.productBG)
+            .padding(14)
+            .offset(x: 12, y: -18)
+          
+          Circle()
+            .stroke(Color.white, lineWidth: 1.4)
+            .padding(24)
+            .offset(x: 12, y: -18)
+        }
+      )
       
       Text(product.name)
         .fontWeight(.semibold)
@@ -190,7 +207,7 @@ extension HomeView {
       .padding(.vertical, 8)
       .padding(.horizontal, 12)
       .background(
-      
+        
         ZStack {
           // Transition Slider
           if productVM.selectedProductType == type {
