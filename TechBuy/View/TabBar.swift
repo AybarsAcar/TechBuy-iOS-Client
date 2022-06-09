@@ -12,6 +12,7 @@ import SwiftUI
 struct TabBar: View {
   
   @EnvironmentObject private var baseData: BaseViewModel
+  @EnvironmentObject private var basket: BasketViewModel
   
   init() {
     // hide the default tab view
@@ -68,13 +69,14 @@ extension TabBar {
           .clipShape(Circle())
           .shadow(color: .black.opacity(0.04), radius: 5, x: -5, y: -5)
           .overlay(
-            Text("2")
+            Text("\(basket.items.count)")
               .font(.footnote)
               .foregroundColor(.white)
               .padding(12)
               .background(Color.theme.actionColor)
               .clipShape(Circle())
               .offset(x: 10,y: -10)
+              .opacity(basket.items.count > 0 ? 1 : 0)
             , alignment: .topTrailing
           )
       }

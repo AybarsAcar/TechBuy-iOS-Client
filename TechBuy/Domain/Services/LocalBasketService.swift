@@ -11,12 +11,10 @@ import Foundation
 protocol LocalBasketService {
   
   /// returns the basket stored in local Device database
-  func getBasket()
-  
-  /// updates the basket if it exists
-  /// if a basket does not exist creates a new one
-  func updateCreate(basket: String)
+  func getItems() -> [BasketItem]
   
   /// removes all the items in the basket and clears it
-  func deleteBasket()
+  func delete(item: BasketItem)
+  
+  func add(item: BasketItem)
 }

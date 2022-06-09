@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
   
+  // basket
+  @EnvironmentObject private var basketVM: BasketViewModel
+  
   @EnvironmentObject var baseData: BaseViewModel
   
   @State private var size = "256 GB"
@@ -174,8 +177,22 @@ struct DetailView: View {
           
           // Add to cart
           Button {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-              baseData.dismissDetailView()
+            basketVM.add(
+              item: BasketItem(
+                id: product.id,
+                productName: product.name,
+                price: product.price,
+                quantity: 1,
+                imageURL: product.imageURL,
+                brand: product.productBrand,
+                type: product.productType
+              )
+            )
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+              withAnimation(.easeInOut) {
+                baseData.dismissDetailView()
+              }
             }
           } label: {
             HStack(spacing: 15) {

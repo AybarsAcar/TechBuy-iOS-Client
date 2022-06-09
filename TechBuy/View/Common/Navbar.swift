@@ -66,6 +66,5 @@ struct Navbar_Previews: PreviewProvider {
     Navbar()
       .previewLayout(.sizeThatFits)
       .environmentObject(BaseViewModel())
-    
   }
 }

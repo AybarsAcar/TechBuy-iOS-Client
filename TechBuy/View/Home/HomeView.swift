@@ -227,5 +227,6 @@ struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
       .environmentObject(BaseViewModel())
+      .environmentObject(BasketViewModel())
   }
 }

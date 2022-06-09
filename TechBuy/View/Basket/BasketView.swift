@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BasketView: View {
   
+  @EnvironmentObject private var basketVM: BasketViewModel
+  
   @Environment(\.dismiss) private var dismiss
   
   var body: some View {
@@ -22,7 +24,9 @@ struct BasketView: View {
           .padding(.vertical)
         
         VStack {
-          CartCardView()
+          ForEach(basketVM.items) { basketItem in
+            CartCardView(item: basketItem)
+          }
         }
         
         Text("Delivery Location")
@@ -94,7 +98,7 @@ struct BasketView: View {
               .font(.subheadline)
               .foregroundColor(.secondary)
             Spacer()
-            Text("$350.00")
+            Text(basketVM.subTotal.asCurrencyWith2Decimals())
               .font(.subheadline.bold())
               .foregroundColor(.black.opacity(0.6))
           }
@@ -104,7 +108,7 @@ struct BasketView: View {
               .font(.subheadline)
               .foregroundColor(.secondary)
             Spacer()
-            Text("+ $9.99")
+            Text("+ \(basketVM.shippingCost.asCurrencyWith2Decimals())")
               .font(.subheadline.bold())
               .foregroundColor(.black.opacity(0.6))
           }
@@ -114,7 +118,7 @@ struct BasketView: View {
               .font(.subheadline)
               .foregroundColor(.secondary)
             Spacer()
-            Text("$359.99")
+            Text(basketVM.total.asCurrencyWith2Decimals())
               .font(.title3.bold())
               .foregroundColor(.black.opacity(0.8))
           }
@@ -123,7 +127,7 @@ struct BasketView: View {
         Button {
           
         } label: {
-          Text("CHECKOUT ($379.99)".uppercased())
+          Text("CHECKOUT (\(basketVM.total.asCurrencyWith2Decimals()))".uppercased())
             .font(.subheadline)
             .foregroundColor(.white)
             .frame(height: 55)
@@ -176,7 +180,7 @@ extension BasketView {
   }
   
   @ViewBuilder
-  private func CartCardView() -> some View {
+  private func CartCardView(item: BasketItem) -> some View {
     HStack(alignment: .top, spacing: 16) {
       ZStack {
         Color.theme.paleBlue
@@ -188,21 +192,38 @@ extension BasketView {
               .frame(width: 120, height: 120)
           )
         
-        Image.headphone
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding()
+        CachedImage(withURL: item.imageURL, transition: .scale.combined(with: .opacity)) { state in
+          switch state {
+          case .empty:
+            ProgressView()
+              .background(.blue, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+            
+          case .success(let image):
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+            
+          case .failure:
+            Image(systemName: "photo.on.rectangle.angled")
+              .font(.largeTitle)
+              .foregroundColor(.white)
+            
+          @unknown default:
+            fatalError()
+          }
+        }
+        .padding()
       }
       .frame(width: 140, height: 140)
       
       VStack(alignment: .leading) {
-        Text("Sony XM 4")
+        Text(item.productName)
           .font(.title3.bold())
         
-        Text("Headphones")
+        Text(item.type)
           .font(.headline)
         
-        Text("$ 350.00")
+        Text(item.priceDisplay)
           .font(.footnote)
           .foregroundColor(.black.opacity(0.8))
           .padding(.top, 8)
@@ -217,14 +238,19 @@ extension BasketView {
                 .stroke(lineWidth: 0.8)
             )
           
-          Text("1")
+          Text("\(item.quantity)")
           
-          Text("+")
-            .padding(8)
-            .background(
-              Circle()
-                .stroke(lineWidth: 0.8)
-            )
+          Button {
+            basketVM.increaseQuantity(for: item)
+          } label: {
+            Text("+")
+              .padding(8)
+              .background(
+                Circle()
+                  .stroke(lineWidth: 0.8)
+              )
+          }
+
           
           Spacer()
           
@@ -245,5 +271,6 @@ extension BasketView {
 struct BasketView_Previews: PreviewProvider {
   static var previews: some View {
     BasketView()
+      .environmentObject(BasketViewModel())
   }
 }

@@ -10,11 +10,13 @@ import SwiftUI
 struct ContentView: View {
   
   @StateObject private var baseData = BaseViewModel()
+  @StateObject private var basketViewModel = BasketViewModel()
   
   var body: some View {
     ZStack {
       TabBar()
         .environmentObject(baseData)
+        .environmentObject(basketViewModel)
       
       SidebarView(show: $baseData.showSideBar) {
         sidebarContent
