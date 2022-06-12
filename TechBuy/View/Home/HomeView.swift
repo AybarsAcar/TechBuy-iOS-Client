@@ -44,14 +44,14 @@ struct HomeView: View {
               Group {
                 switch productVM.sortDescriptor {
                 case .default:
-                 Text("Sort by")
+                  Text("Sort by")
                 case .priceAscending:
                   Text("Price ascending")
                 case .priceDescending:
                   Text("Price descending")
                 }
               }
-                .font(.caption.bold())
+              .font(.caption.bold())
               
               Image(systemName: "chevron.down")
                 .rotationEffect(.degrees(showOptions ? 180 : 0))
@@ -94,7 +94,7 @@ struct HomeView: View {
       .padding()
       .padding(.bottom, 100)
     }
-    .overlay(DetailView(animation: animation).environmentObject(baseData))
+    .overlay(DetailView(animation: animation))
   }
 }
 
@@ -206,7 +206,6 @@ extension HomeView {
       .padding(.vertical, 8)
       .padding(.horizontal, 12)
       .background(
-        
         ZStack {
           // Transition Slider
           if productVM.selectedProductType == type {
@@ -216,7 +215,6 @@ extension HomeView {
               .shadow(color: .black.opacity(0.05), radius: 5, x: 5, y: 5 )
           }
         }
-        
       )
     }
   }

@@ -36,7 +36,7 @@ struct TabBar: View {
       ProfileView()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.opacity(0.04))
-        .tag(Tab.person)
+        .tag(Tab.profile)
       
     }
     .overlay(customTabBar, alignment: .bottom)
@@ -82,13 +82,17 @@ extension TabBar {
       }
       .offset(y: -30)
       .fullScreenCover(isPresented: $baseData.showBasket) {
-        BasketView()
+        NavigationView {
+          BasketView()
+            .background(Color.black.opacity(0.02))
+            .navigationBarHidden(true)
+        }
       }
       
       TabButton(tab: .clipboard)
         .offset(x: 10)
       
-      TabButton(tab: .person)
+      TabButton(tab: .profile)
     }
     .withCurvedBackground()
     // hide when the details page is shown

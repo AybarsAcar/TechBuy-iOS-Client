@@ -10,6 +10,7 @@ import SwiftUI
 struct BasketView: View {
   
   @EnvironmentObject private var basketVM: BasketViewModel
+  @EnvironmentObject private var accountVM: AccountViewModel
   
   @Environment(\.dismiss) private var dismiss
   
@@ -29,100 +30,9 @@ struct BasketView: View {
           }
         }
         
-        Text("Delivery Location")
-          .font(.title3.bold())
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.vertical)
-          .padding(.top, 40)
+        deliveryDetails
         
-        HStack(spacing: 12) {
-          Image(systemName: "mappin")
-            .foregroundColor(.blue)
-            .frame(maxHeight: .infinity)
-            .frame(width: 40)
-            .background(Color.gray.opacity(0.2))
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-          
-          VStack(alignment: .leading) {
-            Text("75 Shortland Esplanade")
-              .font(.callout.bold())
-            
-            Text("Newcastle, NSW, 2300")
-              .font(.callout)
-          }
-          
-          Spacer()
-          
-          Image(systemName: "chevron.right")
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        
-        Text("Payment Method")
-          .font(.title3.bold())
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.vertical)
-        
-        HStack(spacing: 12) {
-          Image("visa-logo")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(maxHeight: .infinity)
-            .frame(width: 40)
-            .background(Color.gray.opacity(0.2))
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-          
-          VStack(alignment: .leading) {
-            Text("Visa Classic")
-              .font(.callout.bold())
-            
-            Text("*******-0921")
-              .font(.callout)
-              .foregroundColor(.secondary)
-          }
-          
-          Spacer()
-          
-          Image(systemName: "chevron.right")
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        
-        Text("Order Info")
-          .font(.title3.bold())
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.vertical)
-          .padding(.top, 40)
-        
-        VStack(spacing: 20) {
-          HStack {
-            Text("Subtotal")
-              .font(.subheadline)
-              .foregroundColor(.secondary)
-            Spacer()
-            Text(basketVM.subTotal.asCurrencyWith2Decimals())
-              .font(.subheadline.bold())
-              .foregroundColor(.black.opacity(0.6))
-          }
-          
-          HStack {
-            Text("Shipping Cost")
-              .font(.subheadline)
-              .foregroundColor(.secondary)
-            Spacer()
-            Text("+ \(basketVM.shippingCost.asCurrencyWith2Decimals())")
-              .font(.subheadline.bold())
-              .foregroundColor(.black.opacity(0.6))
-          }
-          
-          HStack {
-            Text("Total")
-              .font(.subheadline)
-              .foregroundColor(.secondary)
-            Spacer()
-            Text(basketVM.total.asCurrencyWith2Decimals())
-              .font(.title3.bold())
-              .foregroundColor(.black.opacity(0.8))
-          }
-        }
+        orderDetails
         
         Button {
           
@@ -135,6 +45,7 @@ struct BasketView: View {
             .background(Color.theme.actionColor)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
+        .disabled(!accountVM.isLoggedIn)
         .buttonStyle(.withBoxPressableButtonStyle)
         .padding(.top)
       }
@@ -143,6 +54,7 @@ struct BasketView: View {
   }
 }
 
+// MARK: - Components
 extension BasketView {
   
   private var navBar: some View {
@@ -241,7 +153,7 @@ extension BasketView {
                   .stroke(lineWidth: 0.8)
               )
           }
-
+          
           
           Text("\(item.quantity)")
           
@@ -255,7 +167,7 @@ extension BasketView {
                   .stroke(lineWidth: 0.8)
               )
           }
-
+          
           
           Spacer()
           
@@ -268,13 +180,135 @@ extension BasketView {
               .background(Color.secondary.opacity(0.4))
               .clipShape(Circle())
           }
-
+          
         }
         .foregroundColor(.secondary)
       }
       
     }
     .frame(maxWidth: .infinity, alignment: .leading)
+  }
+  
+  private var addressLink: some View {
+    HStack(spacing: 12) {
+      Image(systemName: "mappin")
+        .foregroundColor(.blue)
+        .frame(maxHeight: .infinity)
+        .frame(width: 40)
+        .background(Color.gray.opacity(0.2))
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+      
+      VStack(alignment: .leading) {
+        Text("75 Shortland Esplanade")
+          .font(.callout.bold())
+        
+        Text("Newcastle, NSW, 2300")
+          .font(.callout)
+      }
+      
+      Spacer()
+      
+      Image(systemName: "chevron.right")
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+  }
+  
+  private var creditCardDetailsLink: some View {
+    HStack(spacing: 12) {
+      Image("visa-logo")
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(maxHeight: .infinity)
+        .frame(width: 40)
+        .background(Color.gray.opacity(0.2))
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+      
+      VStack(alignment: .leading) {
+        Text("Visa Classic")
+          .font(.callout.bold())
+        
+        Text("*******-0921")
+          .font(.callout)
+          .foregroundColor(.secondary)
+      }
+      
+      Spacer()
+      
+      Image(systemName: "chevron.right")
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+  }
+  
+  private var deliveryDetails: some View {
+    Group {
+      Text("Delivery Location")
+        .font(.title3.bold())
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical)
+        .padding(.top, 40)
+      
+      NavigationLink {
+        Text("Address details here")
+      } label: {
+        addressLink
+          .foregroundColor(.primary)
+      }
+      
+      
+      Text("Payment Method")
+        .font(.title3.bold())
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical)
+      
+      NavigationLink {
+        Text("Credit Card Details here")
+      } label: {
+        creditCardDetailsLink
+          .foregroundColor(.primary)
+      }
+    }
+  }
+  
+  private var orderDetails: some View {
+    Group {
+      Text("Order Info")
+        .font(.title3.bold())
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical)
+        .padding(.top, 40)
+      
+      VStack(spacing: 20) {
+        HStack {
+          Text("Subtotal")
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+          Spacer()
+          Text(basketVM.subTotal.asCurrencyWith2Decimals())
+            .font(.subheadline.bold())
+            .foregroundColor(.black.opacity(0.6))
+        }
+        
+        HStack {
+          Text("Shipping Cost")
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+          Spacer()
+          Text("+ \(basketVM.shippingCost.asCurrencyWith2Decimals())")
+            .font(.subheadline.bold())
+            .foregroundColor(.black.opacity(0.6))
+        }
+        
+        HStack {
+          Text("Total")
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+          Spacer()
+          Text(basketVM.total.asCurrencyWith2Decimals())
+            .font(.title3.bold())
+            .foregroundColor(.black.opacity(0.8))
+        }
+      }
+    }
   }
 }
 

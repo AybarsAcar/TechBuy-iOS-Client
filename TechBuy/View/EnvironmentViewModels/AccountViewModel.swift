@@ -24,6 +24,10 @@ final class AccountViewModel: ObservableObject {
   
   @Inject private var service: AccountService
   
+  var isLoggedIn: Bool {
+    return account != nil
+  }
+  
   @MainActor
   func login() async {
     

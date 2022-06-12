@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Represents the high level view state of the app
 final class BaseViewModel: ObservableObject {
   
   // Tab bar
@@ -15,6 +16,7 @@ final class BaseViewModel: ObservableObject {
   // basket sheet
   @Published var showBasket = false
   
+  // Side bar
   @Published var showSideBar = false
   
   // Detail View properties
@@ -37,5 +39,5 @@ enum Tab: String {
   case home = "house"
   case heart = "heart.fill"
   case clipboard = "rectangle.grid.3x2.fill"
-  case person = "person.fill"
+  case profile = "person.fill"
 }
