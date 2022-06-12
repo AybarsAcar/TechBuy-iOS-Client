@@ -36,10 +36,12 @@ fileprivate func buildContainer() -> Container {
   container.register(LocalBasketService.self) { _ in
     return LocalBasketRepository()
   }
+  .inObjectScope(.container)
   
   container.register(AccountService.self) { _ in
     return AccountRepository()
   }
+  .inObjectScope(.container)
   
   return container
 }

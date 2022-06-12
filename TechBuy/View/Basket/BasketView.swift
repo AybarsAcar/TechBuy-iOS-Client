@@ -231,12 +231,17 @@ extension BasketView {
         Spacer()
         
         HStack(spacing: 20) {
-          Text("-")
-            .padding(8)
-            .background(
-              Circle()
-                .stroke(lineWidth: 0.8)
-            )
+          Button {
+            basketVM.decreaseQuantity(for: item)
+          } label: {
+            Text("-")
+              .padding(8)
+              .background(
+                Circle()
+                  .stroke(lineWidth: 0.8)
+              )
+          }
+
           
           Text("\(item.quantity)")
           
@@ -254,11 +259,16 @@ extension BasketView {
           
           Spacer()
           
-          Image(systemName: "trash")
-            .padding(8)
-            .foregroundColor(.secondary)
-            .background(Color.secondary.opacity(0.4))
-            .clipShape(Circle())
+          Button {
+            basketVM.delete(item: item)
+          } label: {
+            Image(systemName: "trash")
+              .padding(8)
+              .foregroundColor(.secondary)
+              .background(Color.secondary.opacity(0.4))
+              .clipShape(Circle())
+          }
+
         }
         .foregroundColor(.secondary)
       }

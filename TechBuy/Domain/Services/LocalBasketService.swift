@@ -17,4 +17,6 @@ protocol LocalBasketService {
   func delete(item: BasketItem)
   
   func add(item: BasketItem)
+  
+  func decreaseQuantity(forItem item: BasketItem)
 }

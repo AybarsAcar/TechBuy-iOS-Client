@@ -10,8 +10,10 @@ import CoreData
 
 final class LocalBasketRepository: LocalBasketService {
   
+  @Published var itemEntities: [BasketItemEntity] = []
+  
   private let container: NSPersistentContainer
-  private let containerName = "BasketContainer"
+  private let containerName = "Basket"
   private let entityName = "BasketItemEntity"
   
   init() {
@@ -21,28 +23,67 @@ final class LocalBasketRepository: LocalBasketService {
       if let error = error {
         print("Error loading CoreData:\n\(error)")
       }
+      
+      if let entities = try? self.getEntities() {
+        self.itemEntities = entities
+      }
     }
   }
   
   func add(item: BasketItem) {
-    let entity = BasketItemEntity(context: container.viewContext)
+    let entityToAdd = itemEntities.first(where: { entity in
+      return entity.id == item.id
+    })
     
-    entity.id = Int64(item.id)
-    entity.productName = item.productName
-    entity.type = item.type
-    entity.brand = item.brand
-    entity.imageURL = item.imageURL
-    entity.price = item.price
-    entity.quantity = Int64(item.quantity)
+    if let entityToAdd = entityToAdd {
+      // increment the quantity by 1 if the item already exists
+      entityToAdd.quantity += 1
+      
+      save {
+        self.itemEntities.append(entityToAdd)
+      }
+    }
+    else {
+      // create new entity
+      let entity = BasketItemEntity(context: container.viewContext)
+      
+      entity.id = Int64(item.id)
+      entity.productName = item.productName
+      entity.type = item.type
+      entity.brand = item.brand
+      entity.imageURL = item.imageURL
+      entity.price = item.price
+      entity.quantity = Int64(item.quantity)
+      
+      save {
+        self.itemEntities.append(entity)
+      }
+    }
+  }
+  
+  func decreaseQuantity(forItem item: BasketItem) {
+    let entity = itemEntities.first(where: { $0.id == item.id })
     
-    save()
+    if let entity = entity {
+      if entity.quantity > 1 {
+        entity.quantity -= 1
+        
+        save {
+
+        }
+      }
+      else {
+        delete(item: item)
+      }
+    }
   }
   
   func getItems() -> [BasketItem] {
-
+    
     do {
-      let entities = try getEntities()
-      return entities.compactMap { entity in
+      itemEntities = try getEntities()
+      
+      return itemEntities.compactMap { entity in
         BasketItem(
           id: Int(entity.id),
           productName: entity.productName ?? "",
@@ -53,7 +94,7 @@ final class LocalBasketRepository: LocalBasketService {
           type: entity.type ?? ""
         )
       }
- 
+      
     } catch {
       print("Error fetching \(error)")
       return []
@@ -61,14 +102,16 @@ final class LocalBasketRepository: LocalBasketService {
   }
   
   func delete(item: BasketItem) {
-    let entities = try? getEntities()
-    
-    let entityToDelete = entities?.first(where: { entity in
+    let entityToDelete = itemEntities.first(where: { entity in
       return entity.id == item.id
     })
     
     if let entityToDelete = entityToDelete {
       container.viewContext.delete(entityToDelete)
+    }
+    
+    save {
+      self.itemEntities = self.itemEntities.filter({ $0.id != entityToDelete?.id })
     }
   }
   
@@ -77,9 +120,10 @@ final class LocalBasketRepository: LocalBasketService {
     return try container.viewContext.fetch(request);
   }
   
-  private func save() {
+  private func save(didSave: () -> Void) {
     do {
       try container.viewContext.save()
+      didSave()
     } catch {
       print("Error saving changes to Core Data:\n\(error)")
     }
