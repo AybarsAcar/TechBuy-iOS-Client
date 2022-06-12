@@ -16,7 +16,7 @@ struct BasketView: View {
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
-      VStack {
+      VStack(alignment: .leading) {
         navBar
         
         Text("My Cart")
@@ -30,7 +30,20 @@ struct BasketView: View {
           }
         }
         
-        deliveryDetails
+        if accountVM.isLoggedIn {
+          deliveryDetails
+            .transition(.move(edge: .trailing))
+        }
+        else {
+          LoginRegisterView(spacing: 20)
+            .padding(.vertical, 28)
+            .background(
+              Color.theme.paleBlue.opacity(0.2)
+                .padding(.horizontal, -20)
+            )
+            .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
+            .transition(.move(edge: .leading))
+        }
         
         orderDetails
         
@@ -48,6 +61,7 @@ struct BasketView: View {
         .disabled(!accountVM.isLoggedIn)
         .buttonStyle(.withBoxPressableButtonStyle)
         .padding(.top)
+        
       }
       .padding()
     }
@@ -316,5 +330,6 @@ struct BasketView_Previews: PreviewProvider {
   static var previews: some View {
     BasketView()
       .environmentObject(BasketViewModel())
+      .environmentObject(AccountViewModel())
   }
 }
