@@ -24,6 +24,7 @@ struct LoginRegisterView: View {
         .font(.title.bold())
       
       BoxTextField("Email *", text: $viewModel.email)
+        .keyboardType(.emailAddress)
         .focused($focusedField, equals: .email)
       
       BoxTextField("Password *", text: $viewModel.password, type: .secure)

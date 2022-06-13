@@ -39,6 +39,8 @@
 		0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29B2842E68600737E80 /* ProductResultsDTO.swift */; };
 		0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */; };
 		0098C2A02842EEB900737E80 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C29F2842EEB900737E80 /* Double+Extensions.swift */; };
+		00B147792856AC8200AF2D02 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B147782856AC8200AF2D02 /* Address.swift */; };
+		00B1477B2856AD4400AF2D02 /* OrderDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B1477A2856AD4400AF2D02 /* OrderDTO.swift */; };
 		00B50918284DFF4900F4EAF2 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B50917284DFF4900F4EAF2 /* SidebarView.swift */; };
 		00B5091A284E09BA00F4EAF2 /* LocalBasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B50919284E09BA00F4EAF2 /* LocalBasketRepository.swift */; };
 		00B5091C284E09C500F4EAF2 /* LocalBasketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */; };
@@ -100,6 +102,8 @@
 		0098C29B2842E68600737E80 /* ProductResultsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultsDTO.swift; sourceTree = "<group>"; };
 		0098C29D2842EE8800737E80 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		0098C29F2842EEB900737E80 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		00B147782856AC8200AF2D02 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		00B1477A2856AD4400AF2D02 /* OrderDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDTO.swift; sourceTree = "<group>"; };
 		00B50917284DFF4900F4EAF2 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		00B50919284E09BA00F4EAF2 /* LocalBasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBasketRepository.swift; sourceTree = "<group>"; };
 		00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBasketService.swift; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				00312003284F1B99007D2DEB /* AccountDTO.swift */,
 				0098C29B2842E68600737E80 /* ProductResultsDTO.swift */,
 				00794BAE2851F5D400528C17 /* Basket.swift */,
+				00B1477A2856AD4400AF2D02 /* OrderDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				00312005284F1C5A007D2DEB /* Account.swift */,
 				0010AF4B283E297300CF07EC /* Product.swift */,
 				00794BAC2851F5BB00528C17 /* BasketItem.swift */,
+				00B147782856AC8200AF2D02 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				005547C628501EBF003EE213 /* LottieView.swift in Sources */,
 				0098C29E2842EE8800737E80 /* UIApplication+Extensions.swift in Sources */,
 				00794BAB2851F4BD00528C17 /* Basket.xcdatamodeld in Sources */,
+				00B1477B2856AD4400AF2D02 /* OrderDTO.swift in Sources */,
 				00D36DC7283CEA70006D8B6B /* ContentView.swift in Sources */,
 				00B5091C284E09C500F4EAF2 /* LocalBasketService.swift in Sources */,
 				00D36DE1283CEBC8006D8B6B /* AccountViewModel.swift in Sources */,
@@ -577,6 +584,7 @@
 				00794BAD2851F5BB00528C17 /* BasketItem.swift in Sources */,
 				007367762855C17300A15136 /* CreditCardView.swift in Sources */,
 				0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */,
+				00B147792856AC8200AF2D02 /* Address.swift in Sources */,
 				0010AF4C283E297300CF07EC /* Product.swift in Sources */,
 				0010AF56283E39E400CF07EC /* View+Extensions.swift in Sources */,
 				00DB0E9B283F61AE005F7D4B /* BasketView.swift in Sources */,

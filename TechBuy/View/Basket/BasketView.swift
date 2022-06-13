@@ -19,48 +19,77 @@ struct BasketView: View {
       VStack(alignment: .leading) {
         navBar
         
-        Text("My Cart")
-          .font(.title.bold())
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.vertical)
-        
-        VStack {
-          ForEach(basketVM.items) { basketItem in
-            CartCardView(item: basketItem)
-          }
-        }
-        
-        if accountVM.isLoggedIn {
-          deliveryDetails
-            .transition(.move(edge: .trailing))
-        }
-        else {
-          LoginRegisterView(spacing: 20)
-            .padding(.vertical, 28)
-            .background(
-              Color.theme.paleBlue.opacity(0.2)
-                .padding(.horizontal, -20)
-            )
-            .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
-            .transition(.move(edge: .leading))
-        }
-        
-        orderDetails
-        
-        Button {
+        if basketVM.items.count > 0 {
+          Text("My Cart")
+            .font(.title.bold())
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical)
           
-        } label: {
-          Text("CHECKOUT (\(basketVM.total.asCurrencyWith2Decimals()))".uppercased())
-            .font(.subheadline)
-            .foregroundColor(.white)
-            .frame(height: 55)
-            .frame(maxWidth: .infinity)
-            .background(Color.theme.actionColor)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+          VStack {
+            ForEach(basketVM.items) { basketItem in
+              CartCardView(item: basketItem)
+            }
+          }
+          
+          if accountVM.isLoggedIn {
+            deliveryDetails
+              .transition(.move(edge: .trailing))
+          }
+          else {
+            LoginRegisterView(spacing: 20)
+              .padding(.vertical, 28)
+              .background(
+                Color.theme.paleBlue.opacity(0.2)
+                  .padding(.horizontal, -20)
+              )
+              .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
+              .transition(.move(edge: .leading))
+          }
+          
+          orderDetails
+          
+          Button {
+            
+          } label: {
+            Text("CHECKOUT (\(basketVM.total.asCurrencyWith2Decimals()))".uppercased())
+              .font(.subheadline)
+              .foregroundColor(.white)
+              .frame(height: 55)
+              .frame(maxWidth: .infinity)
+              .background(Color.theme.actionColor)
+              .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+          }
+          .disabled(!accountVM.isLoggedIn)
+          .buttonStyle(.withBoxPressableButtonStyle)
+          .padding(.top)
         }
-        .disabled(!accountVM.isLoggedIn)
-        .buttonStyle(.withBoxPressableButtonStyle)
-        .padding(.top)
+        
+        else {
+         Image("start-shopping")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 400, height: 400)
+          
+          Text("Your cart is empty..")
+            .font(.title2)
+            .fontWeight(.light)
+          
+          Spacer()
+          
+          Button {
+            dismiss()
+          } label: {
+            Text("Start shopping".uppercased())
+              .font(.subheadline)
+              .foregroundColor(.white)
+              .frame(height: 55)
+              .frame(maxWidth: .infinity)
+              .background(Color.theme.actionColor)
+              .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+          }
+          .buttonStyle(.withBoxPressableButtonStyle)
+          .padding(.top)
+        }
         
       }
       .padding()
@@ -70,6 +99,7 @@ struct BasketView: View {
 
 // MARK: - Components
 extension BasketView {
+  
   
   private var navBar: some View {
     HStack {
@@ -262,7 +292,7 @@ extension BasketView {
         .padding(.top, 40)
       
       NavigationLink {
-        Text("Address details here")
+        DeliveryAddressView()
       } label: {
         addressLink
           .foregroundColor(.primary)
@@ -275,7 +305,7 @@ extension BasketView {
         .padding(.vertical)
       
       NavigationLink {
-        Text("Credit Card Details here")
+        CreditCardView()
       } label: {
         creditCardDetailsLink
           .foregroundColor(.primary)
