@@ -12,6 +12,7 @@ struct CreditCardView: View {
   @Environment(\.dismiss) private var dismiss
   
   @State private var creditCardSelected = true
+  @State private var expiryDate = Date()
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -51,7 +52,7 @@ struct CreditCardView: View {
             .background(Color.black.opacity(0.05))
           
           HStack {
-            TextField("Card Number", text: .constant(""))
+            TextField("Expiry Date", text: .constant(""))
               .frame(height: 55)
               .frame(maxWidth: .infinity)
               .padding(.horizontal)
@@ -169,10 +170,11 @@ struct CreditCardView: View {
 extension CreditCardView {
   
   var backButton: some View {
-    Image(systemName: "arrow.left")
-      .onTapGesture {
-        dismiss()
-      }
+    Button {
+      dismiss()
+    } label: {
+      Image(systemName: "arrow.left")
+    }
   }
 }
 

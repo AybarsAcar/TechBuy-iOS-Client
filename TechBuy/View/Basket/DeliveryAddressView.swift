@@ -11,7 +11,7 @@ struct DeliveryAddressView: View {
   @Environment(\.dismiss) private var dismiss
   
   @EnvironmentObject private var accountVM: AccountViewModel
-
+  
   // TODO: move to view model
   @State private var address = Address(firstName: "", lastName: "", street: "", city: "", state: "", postCode: "")
   @State private var number = ""

@@ -25,8 +25,7 @@ final class AccountViewModel: ObservableObject {
   @Inject private var service: AccountService
   
   var isLoggedIn: Bool {
-//    return account != nil
-    return true
+    return account != nil
   }
   
   @MainActor

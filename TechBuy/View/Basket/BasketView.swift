@@ -12,6 +12,8 @@ struct BasketView: View {
   @EnvironmentObject private var basketVM: BasketViewModel
   @EnvironmentObject private var accountVM: AccountViewModel
   
+  @State private var showLogin = false
+  
   @Environment(\.dismiss) private var dismiss
   
   var body: some View {
@@ -36,14 +38,44 @@ struct BasketView: View {
               .transition(.move(edge: .trailing))
           }
           else {
-            LoginRegisterView(spacing: 20)
-              .padding(.vertical, 28)
-              .background(
-                Color.theme.paleBlue.opacity(0.2)
-                  .padding(.horizontal, -20)
-              )
-              .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
+            VStack {
+              Text("Already have an account?")
+                .font(.title3.bold())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom)
+                
+              Button {
+                showLogin.toggle()
+              } label: {
+                Text("Sign In")
+                  .font(.headline)
+                  .fontWeight(.heavy)
+                  .foregroundColor(.white)
+                  .padding(.horizontal, 24)
+                  .padding(.vertical, 12)
+                  .background(Color.theme.actionColor)
+                  .cornerRadius(8)
+              }
+
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .padding(.horizontal)
+            .background(Color.theme.palePink.opacity(0.4))
+            .cornerRadius(12)
               .transition(.move(edge: .leading))
+              .sheet(isPresented: $showLogin) {
+                LoginRegisterView(spacing: 20)
+                  .frame(maxWidth: .infinity, maxHeight: .infinity)
+                  .padding()
+                  .padding(.vertical, 28)
+                  .background(
+                    Color.theme.paleBlue.opacity(0.2)
+                      .ignoresSafeArea()
+                  )
+                  .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
+
+              }
           }
           
           orderDetails
@@ -51,7 +83,18 @@ struct BasketView: View {
           Button {
             
           } label: {
-            Text("CHECKOUT (\(basketVM.total.asCurrencyWith2Decimals()))".uppercased())
+            HStack {
+              Text("CHECKOUT".uppercased())
+                .fontWeight(.black)
+              
+              Rectangle()
+                .frame(maxHeight: .infinity)
+                .frame(width: 0.5)
+                .padding()
+              
+              Text("\(basketVM.total.asCurrencyWith2Decimals())")
+                .fontWeight(.heavy)
+            }
               .font(.subheadline)
               .foregroundColor(.white)
               .frame(height: 55)
