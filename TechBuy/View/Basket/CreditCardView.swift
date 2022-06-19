@@ -12,7 +12,7 @@ struct CreditCardView: View {
   @Environment(\.dismiss) private var dismiss
   
   @State private var creditCardSelected = true
-  @State private var expiryDate = Date()
+  @State private var expiryDate = Date() // TODO: move to ViewModel
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
