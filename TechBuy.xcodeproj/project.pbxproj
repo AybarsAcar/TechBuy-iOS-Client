@@ -65,8 +65,6 @@
 		00DB0E96283F5AE7005F7D4B /* CachedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E95283F5AE7005F7D4B /* CachedImageViewModel.swift */; };
 		00DB0E9B283F61AE005F7D4B /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9A283F61AE005F7D4B /* BasketView.swift */; };
 		00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9C283F6321005F7D4B /* ImageCache.swift */; };
-		00DB0EA0283F65B4005F7D4B /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0E9F283F65B4005F7D4B /* Stripe */; };
-		00DB0EA2283F65B4005F7D4B /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 00DB0EA1283F65B4005F7D4B /* StripeCardScan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +116,7 @@
 		00D36DE8283CEFD4006D8B6B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		00D36DEA283CF337006D8B6B /* CustomCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurveShape.swift; sourceTree = "<group>"; };
 		00D36DED283CF7A8006D8B6B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		00D4967F2869D047008E3295 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		00DB0E85283F561E005F7D4B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		00DB0E87283F564A005F7D4B /* CloudinaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryService.swift; sourceTree = "<group>"; };
 		00DB0E8C283F56EA005F7D4B /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -135,10 +134,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				005547C428501EAA003EE213 /* Lottie in Frameworks */,
-				00DB0EA2283F65B4005F7D4B /* StripeCardScan in Frameworks */,
 				00DB0E83283F55AC005F7D4B /* Cloudinary in Frameworks */,
 				00DB0E8B283F56B4005F7D4B /* Swinject in Frameworks */,
-				00DB0EA0283F65B4005F7D4B /* Stripe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +178,13 @@
 				00312012284F4CF9007D2DEB /* LoginRegisterView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		003F67C528D32C540093BF21 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		005547BD28501D9E003EE213 /* Resources */ = {
@@ -256,12 +260,14 @@
 			children = (
 				0030819C2843600B00742828 /* Info.plist */,
 				00D36DC4283CEA70006D8B6B /* TechBuyApp.swift */,
+				00D4967F2869D047008E3295 /* Secrets.xcconfig */,
 				00D36DD2283CEAF5006D8B6B /* Data */,
 				00D36DD3283CEAF9006D8B6B /* DependencyContainer */,
 				00D36DD4283CEAFE006D8B6B /* Domain */,
 				00D36DD5283CEB01006D8B6B /* Extensions */,
 				00D36DCA283CEA72006D8B6B /* Preview Content */,
 				005547BD28501D9E003EE213 /* Resources */,
+				003F67C528D32C540093BF21 /* Services */,
 				00D36DD6283CEB05006D8B6B /* Styles */,
 				00D36DD7283CEB06006D8B6B /* Utils */,
 				00D36DD8283CEB09006D8B6B /* View */,
@@ -483,8 +489,6 @@
 			packageProductDependencies = (
 				00DB0E82283F55AC005F7D4B /* Cloudinary */,
 				00DB0E8A283F56B4005F7D4B /* Swinject */,
-				00DB0E9F283F65B4005F7D4B /* Stripe */,
-				00DB0EA1283F65B4005F7D4B /* StripeCardScan */,
 				005547C328501EAA003EE213 /* Lottie */,
 			);
 			productName = TechBuy;
@@ -518,7 +522,6 @@
 			packageReferences = (
 				00DB0E81283F55AC005F7D4B /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
 				00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */,
-				00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */,
 				005547C228501EAA003EE213 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 00D36DC2283CEA70006D8B6B /* Products */;
@@ -740,6 +743,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -747,6 +751,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.aybarsacar.TechBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -773,6 +780,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,6 +788,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.aybarsacar.TechBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -834,14 +845,6 @@
 				kind = branch;
 			};
 		};
-		00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stripe/stripe-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 22.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -859,16 +862,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00DB0E89283F56B4005F7D4B /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		00DB0E9F283F65B4005F7D4B /* Stripe */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */;
-			productName = Stripe;
-		};
-		00DB0EA1283F65B4005F7D4B /* StripeCardScan */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00DB0E9E283F65B4005F7D4B /* XCRemoteSwiftPackageReference "stripe-ios" */;
-			productName = StripeCardScan;
 		};
 /* End XCSwiftPackageProductDependency section */
 

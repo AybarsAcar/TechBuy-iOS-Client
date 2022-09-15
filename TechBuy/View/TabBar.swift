@@ -122,5 +122,6 @@ struct BaseView_Previews: PreviewProvider {
   static var previews: some View {
     TabBar()
       .environmentObject(BaseViewModel())
+      .environmentObject(BasketViewModel())
   }
 }

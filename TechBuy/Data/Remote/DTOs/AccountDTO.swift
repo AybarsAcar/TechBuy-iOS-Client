@@ -20,11 +20,11 @@ struct AccountDTO: Codable {
 // MARK: - Form values for Register POST request
 struct RegisterFormValues: Codable {
   let displayName, username, email, password: String
-
-   enum CodingKeys: String, CodingKey {
-       case displayName = "display_name"
-       case username, email, password
-   }
+  
+  enum CodingKeys: String, CodingKey {
+    case displayName = "display_name"
+    case username, email, password
+  }
 }
 
 // MARK: - Form Values for Login POST request
