@@ -11,8 +11,9 @@ final class ProductRepository: ProductService {
   
   private let domain: String = "https://dev-tech-buy.herokuapp.com/api"
   
-  init() {
-    
+  private var session: URLSession
+  init(session: URLSession) {
+    self.session = session
   }
   
   func getProducts(_ pageParams: PageParams, orderBy order: SortDescriptor? = nil, productType: String? = nil, productBrand: String? = nil) async throws -> ProductResultsDTO {
@@ -34,7 +35,7 @@ final class ProductRepository: ProductService {
     }
 
     do {
-      let (data, response) = try await URLSession.shared.data(from: url)
+      let (data, response) = try await session.data(from: url)
 
       guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 else {
         throw APIError.invalidResponseStatus

@@ -29,7 +29,7 @@ fileprivate func buildContainer() -> Container {
   .inObjectScope(.container)
   
   container.register(ProductService.self) { _ in
-    return ProductRepository()
+    return ProductRepository(session: .shared)
   }
   .inObjectScope(.container)
   
@@ -39,7 +39,7 @@ fileprivate func buildContainer() -> Container {
   .inObjectScope(.container)
   
   container.register(AccountService.self) { _ in
-    return AccountRepository()
+    return AccountRepository(session: .shared)
   }
   .inObjectScope(.container)
   

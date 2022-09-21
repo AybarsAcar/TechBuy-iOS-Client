@@ -11,6 +11,11 @@ final class AccountRepository: AccountService {
   
   private let domain = "https://dev-tech-buy.herokuapp.com/api"
   
+  private var session: URLSession
+  init(session: URLSession) {
+    self.session = session
+  }
+  
   func login(with loginValues: LoginFormValues) async throws -> AccountDTO {
     
     try? await Task.sleep(nanoseconds: 2_000_000_000)
@@ -29,7 +34,7 @@ final class AccountRepository: AccountService {
     }
     
     do {
-      let (data, response) = try await URLSession.shared.upload(for: request, from: dataToSend)
+      let (data, response) = try await session.upload(for: request, from: dataToSend)
       
       guard let httpResponse = response as? HTTPURLResponse else {
         throw APIError.invalidResponseStatus
@@ -75,7 +80,7 @@ final class AccountRepository: AccountService {
     }
     
     do {
-      let (data, response) = try await URLSession.shared.upload(for: request, from: dataToSend)
+      let (data, response) = try await session.upload(for: request, from: dataToSend)
       
       guard let httpResponse = response as? HTTPURLResponse else {
         throw APIError.invalidResponseStatus
