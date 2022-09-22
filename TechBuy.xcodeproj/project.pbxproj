@@ -72,7 +72,18 @@
 		00F0237A28DC3DF9001801B0 /* FormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237928DC3DF9001801B0 /* FormError.swift */; };
 		00F0237C28DC3E38001801B0 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237B28DC3E38001801B0 /* FormValidator.swift */; };
 		00F0237E28DC45E9001801B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237D28DC45E9001801B0 /* Networking.swift */; };
+		00F0238628DC77CF001801B0 /* TechBuy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00F0238728DC77CF001801B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00D36DB9283CEA70006D8B6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00D36DC0283CEA70006D8B6B;
+			remoteInfo = TechBuy;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0004CE1328433D92009D5BDD /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
@@ -140,6 +151,9 @@
 		00F0237928DC3DF9001801B0 /* FormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormError.swift; sourceTree = "<group>"; };
 		00F0237B28DC3E38001801B0 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		00F0237D28DC45E9001801B0 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		00F0238328DC77CF001801B0 /* TechBuy_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechBuy_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechBuy_Tests.swift; sourceTree = "<group>"; };
+		00F0238C28DC7927001801B0 /* TechBuy-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TechBuy-Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +164,13 @@
 				005547C428501EAA003EE213 /* Lottie in Frameworks */,
 				00DB0E83283F55AC005F7D4B /* Cloudinary in Frameworks */,
 				00DB0E8B283F56B4005F7D4B /* Swinject in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F0238028DC77CF001801B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				00D36DC3283CEA70006D8B6B /* TechBuy */,
+				00F0238428DC77CF001801B0 /* TechBuy_Tests */,
 				00D36DC2283CEA70006D8B6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -276,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				00D36DC1283CEA70006D8B6B /* TechBuy.app */,
+				00F0238328DC77CF001801B0 /* TechBuy_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -523,6 +546,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		00F0238428DC77CF001801B0 /* TechBuy_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				00F0238C28DC7927001801B0 /* TechBuy-Tests-Info.plist */,
+				00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */,
+			);
+			path = TechBuy_Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,6 +580,24 @@
 			productReference = 00D36DC1283CEA70006D8B6B /* TechBuy.app */;
 			productType = "com.apple.product-type.application";
 		};
+		00F0238228DC77CF001801B0 /* TechBuy_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00F0238928DC77CF001801B0 /* Build configuration list for PBXNativeTarget "TechBuy_Tests" */;
+			buildPhases = (
+				00F0237F28DC77CF001801B0 /* Sources */,
+				00F0238028DC77CF001801B0 /* Frameworks */,
+				00F0238128DC77CF001801B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00F0238828DC77CF001801B0 /* PBXTargetDependency */,
+			);
+			name = TechBuy_Tests;
+			productName = TechBuy_Tests;
+			productReference = 00F0238328DC77CF001801B0 /* TechBuy_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -555,11 +605,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					00D36DC0283CEA70006D8B6B = {
 						CreatedOnToolsVersion = 13.4;
+					};
+					00F0238228DC77CF001801B0 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 00D36DC0283CEA70006D8B6B;
 					};
 				};
 			};
@@ -582,6 +636,7 @@
 			projectRoot = "";
 			targets = (
 				00D36DC0283CEA70006D8B6B /* TechBuy */,
+				00F0238228DC77CF001801B0 /* TechBuy_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -595,6 +650,13 @@
 				005547C028501DD9003EE213 /* loading-1.json in Resources */,
 				00D36DC9283CEA72006D8B6B /* Assets.xcassets in Resources */,
 				005547C8285020FE003EE213 /* loading-2.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F0238128DC77CF001801B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,11 +728,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		00F0237F28DC77CF001801B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F0238628DC77CF001801B0 /* TechBuy_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00F0238828DC77CF001801B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00D36DC0283CEA70006D8B6B /* TechBuy */;
+			targetProxy = 00F0238728DC77CF001801B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		00D36DCD283CEA72006D8B6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D4967F2869D047008E3295 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -719,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -731,6 +810,7 @@
 		};
 		00D36DCE283CEA72006D8B6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D4967F2869D047008E3295 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -773,7 +853,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -857,6 +937,48 @@
 			};
 			name = Release;
 		};
+		00F0238A28DC77CF001801B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QH7853B55W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TechBuy-Tests-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aybarsacar.TechBuy-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TechBuy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TechBuy";
+			};
+			name = Debug;
+		};
+		00F0238B28DC77CF001801B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QH7853B55W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TechBuy-Tests-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aybarsacar.TechBuy-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TechBuy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TechBuy";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -874,6 +996,15 @@
 			buildConfigurations = (
 				00D36DD0283CEA72006D8B6B /* Debug */,
 				00D36DD1283CEA72006D8B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00F0238928DC77CF001801B0 /* Build configuration list for PBXNativeTarget "TechBuy_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00F0238A28DC77CF001801B0 /* Debug */,
+				00F0238B28DC77CF001801B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

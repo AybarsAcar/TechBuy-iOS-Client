@@ -10,11 +10,16 @@ import Foundation
 final class NetworkService: Networking {
   
   let session: URLSession
+  
   init(session: URLSession) {
     self.session = session
   }
   
   func request<T: Codable>(_ endpoint: Endpoint, type: T.Type) async throws -> T {
+    
+#if DEBUG
+    try? await Task.sleep(nanoseconds: 2_000_000_000)
+#endif
     
     guard let url = endpoint.url else {
       throw NetworkError.invalidURL
@@ -47,6 +52,10 @@ final class NetworkService: Networking {
   }
   
   func request(_ endpoint: Endpoint) async throws {
+#if DEBUG
+    try? await Task.sleep(nanoseconds: 2_000_000_000)
+#endif
+    
     guard let url = endpoint.url else {
       throw NetworkError.invalidURL
     }

@@ -12,16 +12,22 @@ import Foundation
 enum Endpoint {
   case products(page: PageParams, sortDescriptor: SortDescriptor?, type: String?, brand: String?)
   case search(query: String)
+  
+  case brands
+  case types
 
   case login(data: Data?)
   case register(data: Data?)
   case currentUser
+  case emailExists(_ email: String)
+  
+  
 }
 
 // MARK: - Host and Paths
 extension Endpoint {
   var host: String {
-    return "dev-tech-buy.herokuapp.com"
+    return Bundle.main.infoDictionary!["BASE_URL"] as! String
   }
   
   var path: String {
@@ -29,12 +35,19 @@ extension Endpoint {
     case .products,
         .search:
       return "/api/products"
+    case .brands:
+      return "/api/products/brands"
+    case .types:
+      return "/api/products/types"
+      
     case .login:
       return "/api/account/login"
     case .register:
       return "/api/account/register"
     case .currentUser:
       return "/api/account/"
+    case .emailExists:
+      return "/api/email-exists"
     }
   }
 }
@@ -51,10 +64,13 @@ extension Endpoint {
   var methodType: MethodType {
     switch self {
     case .products,
-        .search:
+        .search,
+        .brands,
+        .types:
       return .GET
 
-    case .currentUser:
+    case .currentUser,
+        .emailExists:
       return .GET
     
     case .login(let data),
@@ -76,6 +92,9 @@ extension Endpoint {
       
     case .search(query: let query):
       return [URLQueryItem(name: "search", value: query)]
+      
+    case .emailExists(let email):
+      return [URLQueryItem(name: "email", value: email)]
 
     default:
       return nil
