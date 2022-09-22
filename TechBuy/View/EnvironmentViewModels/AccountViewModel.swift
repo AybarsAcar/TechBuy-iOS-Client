@@ -58,7 +58,7 @@ final class AccountViewModel: ObservableObject {
       confirmPassword = ""
       
       // save the user token to UserDefaults - Maybe save the state
-      UserDefaults.standard.set(accountDTO.token, forKey: "token")
+      UserDefaults.standard.set(accountDTO.token, forKey: UserDefaultKeys.userToken)
       
       // save the user into the local device db
       

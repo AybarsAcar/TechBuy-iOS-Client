@@ -73,6 +73,8 @@
 		00F0237C28DC3E38001801B0 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237B28DC3E38001801B0 /* FormValidator.swift */; };
 		00F0237E28DC45E9001801B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237D28DC45E9001801B0 /* Networking.swift */; };
 		00F0238628DC77CF001801B0 /* TechBuy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */; };
+		00F0238F28DC7C46001801B0 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0238E28DC7C46001801B0 /* HapticsManager.swift */; };
+		00F0239228DC7CA0001801B0 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0239128DC7CA0001801B0 /* UserDefaultKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		00F0238328DC77CF001801B0 /* TechBuy_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechBuy_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechBuy_Tests.swift; sourceTree = "<group>"; };
 		00F0238C28DC7927001801B0 /* TechBuy-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TechBuy-Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		00F0238E28DC7C46001801B0 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		00F0239128DC7CA0001801B0 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		003F67C528D32C540093BF21 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				00F0238D28DC7C3C001801B0 /* Haptic */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 		00D36DD9283CEB28006D8B6B /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				00F0239028DC7C91001801B0 /* UserDefaults */,
 				00B5091D284E0A9600F4EAF2 /* CoreData */,
 				00DB0E9C283F6321005F7D4B /* ImageCache.swift */,
 			);
@@ -555,6 +561,22 @@
 			path = TechBuy_Tests;
 			sourceTree = "<group>";
 		};
+		00F0238D28DC7C3C001801B0 /* Haptic */ = {
+			isa = PBXGroup;
+			children = (
+				00F0238E28DC7C46001801B0 /* HapticsManager.swift */,
+			);
+			path = Haptic;
+			sourceTree = "<group>";
+		};
+		00F0239028DC7C91001801B0 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				00F0239128DC7CA0001801B0 /* UserDefaultKeys.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -687,6 +709,7 @@
 				00B5091C284E09C500F4EAF2 /* LocalBasketService.swift in Sources */,
 				00D36DE1283CEBC8006D8B6B /* AccountViewModel.swift in Sources */,
 				00D36DE6283CEFA5006D8B6B /* TabBar.swift in Sources */,
+				00F0239228DC7CA0001801B0 /* UserDefaultKeys.swift in Sources */,
 				0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */,
 				00D36DC5283CEA70006D8B6B /* TechBuyApp.swift in Sources */,
 				00DB0E88283F564A005F7D4B /* CloudinaryService.swift in Sources */,
@@ -713,6 +736,7 @@
 				00312004284F1B99007D2DEB /* AccountDTO.swift in Sources */,
 				00312008284F1CD9007D2DEB /* AccountRepository.swift in Sources */,
 				00DB0E8D283F56EA005F7D4B /* Resolver.swift in Sources */,
+				00F0238F28DC7C46001801B0 /* HapticsManager.swift in Sources */,
 				00A005E828DBF63D0093B9D3 /* Endpoint.swift in Sources */,
 				00A005ED28DC025E0093B9D3 /* NetworkService.swift in Sources */,
 				00794BAF2851F5D400528C17 /* Basket.swift in Sources */,

@@ -21,13 +21,12 @@ enum Endpoint {
   case currentUser
   case emailExists(_ email: String)
   
-  
 }
 
 // MARK: - Host and Paths
 extension Endpoint {
   var host: String {
-    return Bundle.main.infoDictionary!["BASE_URL"] as! String
+    return Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as! String
   }
   
   var path: String {
