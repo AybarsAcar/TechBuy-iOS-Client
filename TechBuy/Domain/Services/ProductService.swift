@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Deprecated by NetworkService
+@available(*, deprecated, message: "Use the NetworkingService: Networking instead")
 protocol ProductService {
   
   /// Returns Products in a result with optional order, productType, productBrand parameters

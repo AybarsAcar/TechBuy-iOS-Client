@@ -73,7 +73,7 @@ struct BasketView: View {
                     Color.theme.paleBlue.opacity(0.2)
                       .ignoresSafeArea()
                   )
-                  .snackbarAlert(accountVM.errorMessage, isPresented: $accountVM.showAlert, type: .error)
+                  .snackbarAlert(accountVM.error?.localizedDescription ?? "", isPresented: $accountVM.hasError, type: .error)
 
               }
           }

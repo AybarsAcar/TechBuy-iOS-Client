@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Deprecated by NetworkService
+@available(*, deprecated, message: "Use the NetworkingService: Networking instead")
 final class AccountRepository: AccountService {
   
   private let domain = "https://dev-tech-buy.herokuapp.com/api"
@@ -34,8 +36,11 @@ final class AccountRepository: AccountService {
       throw NetworkError.corruptData
     }
     
+    request.httpBody = dataToSend
+    
     do {
-      let (data, response) = try await session.upload(for: request, from: dataToSend)
+//      let (data, response) = try await session.upload(for: request, from: dataToSend)
+      let (data, response) = try await session.data(for: request)
       
       guard let httpResponse = response as? HTTPURLResponse,
             (200...300) ~= httpResponse.statusCode else {

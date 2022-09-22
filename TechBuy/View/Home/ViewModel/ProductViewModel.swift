@@ -10,12 +10,18 @@ import Foundation
 final class ProductViewModel: ObservableObject {
   
   @Published private(set) var products = [Product]()
+  
   @Published var selectedProductType: ProductType = .all
   @Published private(set) var sortDescriptor: SortDescriptor = .default
   
-  @Published private(set) var loading = false
+  @Published private(set) var state: ViewState?
+  @Published private(set) var error: NetworkError?
   
   @Inject private var service: Networking
+  
+  // pagination properties
+  private var page = 1
+  private var totalPages: Int?
   
   init() {
     Task {
@@ -33,10 +39,12 @@ final class ProductViewModel: ObservableObject {
   
   @MainActor
   func loadProducts() async {
-    loading = true
+    reset()
+    
+    state = .loading
     
     defer {
-      loading = false
+      state = .finished
     }
     
     do {      
@@ -50,7 +58,28 @@ final class ProductViewModel: ObservableObject {
       }
       
     } catch {
-      print(error)
+      if let error = error as? NetworkError {
+        self.error = error
+      }
+      else {
+        self.error = .internalServerError
+      }
+    }
+  }
+}
+
+private extension ProductViewModel {
+  func reset() {
+    if state == .finished {
+      
+      products.removeAll()
+      
+      // set the page back to 1 for initial fetching
+      // this is called when refreshing
+      page = 1
+
+      totalPages = nil
+      state = nil
     }
   }
 }

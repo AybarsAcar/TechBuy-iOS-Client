@@ -5,7 +5,6 @@
 //  Created by Aybars Acar on 24/5/2022.
 //
 
-import Foundation
 import SwiftUI
 
 final class AccountViewModel: ObservableObject {
@@ -18,11 +17,15 @@ final class AccountViewModel: ObservableObject {
   @Published var password = ""
   @Published var confirmPassword = ""
   
-  @Published var loading = false
-  @Published var showAlert = false
-  @Published var errorMessage = ""
+  @Published private(set) var state: SubmissionState = .default
+  @Published var hasError = false
+  @Published private(set) var error: FormError?
   
-  @Inject private var service: AccountService
+  @Inject private var service: Networking
+  
+  var loading: Bool {
+    return state == .submitting
+  }
   
   var isLoggedIn: Bool {
     return account != nil
@@ -31,24 +34,23 @@ final class AccountViewModel: ObservableObject {
   @MainActor
   func login() async {
     
-    guard !email.isEmpty, !password.isEmpty else {
-      showAlert = true
-      errorMessage = "All fields are requierd to register an account."
-      return
-    }
-    
-    loading = true
-    
-    defer {
-      loading = false
-    }
-    
     do {
-      let accountDTO = try await service.login(with: LoginFormValues(email: email, password: password))
+      
+      let formValues = LoginFormValues(email: email, password: password)
+      
+      state = .submitting
+      
+      try CreateValidator.shared.validate(forLogin: formValues)
+      
+      let data = try JSONEncoder().encode(formValues)
+            
+      let accountDTO = try await service.request(.login(data: data), type: AccountDTO.self)
       
       withAnimation(.easeInOut) {
         account = accountDTO.toAccount()
       }
+      
+      state = .successful
       
       // clear the form values
       email = ""
@@ -61,9 +63,21 @@ final class AccountViewModel: ObservableObject {
       // save the user into the local device db
       
     } catch {
+      
       withAnimation(.linear(duration: 0.2)) {
-        showAlert = true
-        errorMessage = error.localizedDescription
+        hasError = true
+        self.state = .unsuccessful
+        
+        switch error {
+        case is NetworkError:
+          self.error = .networking(error: error as! NetworkError)
+          
+        case is CreateValidator.CreateValidatorError:
+          self.error = .validation(error: error as! CreateValidator.CreateValidatorError)
+          
+        default:
+          self.error = .system(error: error)
+        }
       }
     }
   }

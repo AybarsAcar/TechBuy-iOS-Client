@@ -67,6 +67,10 @@
 		00DB0E96283F5AE7005F7D4B /* CachedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E95283F5AE7005F7D4B /* CachedImageViewModel.swift */; };
 		00DB0E9B283F61AE005F7D4B /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9A283F61AE005F7D4B /* BasketView.swift */; };
 		00DB0E9D283F6321005F7D4B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB0E9C283F6321005F7D4B /* ImageCache.swift */; };
+		00F0237428DC3BC0001801B0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237328DC3BC0001801B0 /* ViewState.swift */; };
+		00F0237828DC3DEF001801B0 /* SubmissionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237728DC3DEF001801B0 /* SubmissionState.swift */; };
+		00F0237A28DC3DF9001801B0 /* FormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237928DC3DF9001801B0 /* FormError.swift */; };
+		00F0237C28DC3E38001801B0 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237B28DC3E38001801B0 /* FormValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +134,10 @@
 		00DB0E95283F5AE7005F7D4B /* CachedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageViewModel.swift; sourceTree = "<group>"; };
 		00DB0E9A283F61AE005F7D4B /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		00DB0E9C283F6321005F7D4B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		00F0237328DC3BC0001801B0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		00F0237728DC3DEF001801B0 /* SubmissionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionState.swift; sourceTree = "<group>"; };
+		00F0237928DC3DF9001801B0 /* FormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormError.swift; sourceTree = "<group>"; };
+		00F0237B28DC3E38001801B0 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +174,7 @@
 		0010AF50283E35FA00CF07EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				00F0237228DC3BB7001801B0 /* Models */,
 				005547C928502997003EE213 /* CustomAlert */,
 				0031200E284F3A0A007D2DEB /* BoxTextField.swift */,
 				0010AF53283E361500CF07EC /* Navbar.swift */,
@@ -484,6 +493,33 @@
 			path = Basket;
 			sourceTree = "<group>";
 		};
+		00F0237228DC3BB7001801B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00F0237528DC3DCB001801B0 /* Forms */,
+				00F0237628DC3DCF001801B0 /* Views */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		00F0237528DC3DCB001801B0 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				00F0237728DC3DEF001801B0 /* SubmissionState.swift */,
+				00F0237928DC3DF9001801B0 /* FormError.swift */,
+				00F0237B28DC3E38001801B0 /* FormValidator.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		00F0237628DC3DCF001801B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00F0237328DC3BC0001801B0 /* ViewState.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,8 +634,12 @@
 				00312006284F1C5A007D2DEB /* Account.swift in Sources */,
 				00794BB12851FBD000528C17 /* BasketViewModel.swift in Sources */,
 				00B50918284DFF4900F4EAF2 /* SidebarView.swift in Sources */,
+				00F0237A28DC3DF9001801B0 /* FormError.swift in Sources */,
+				00F0237428DC3BC0001801B0 /* ViewState.swift in Sources */,
 				00794BAD2851F5BB00528C17 /* BasketItem.swift in Sources */,
 				007367762855C17300A15136 /* CreditCardView.swift in Sources */,
+				00F0237C28DC3E38001801B0 /* FormValidator.swift in Sources */,
+				00F0237828DC3DEF001801B0 /* SubmissionState.swift in Sources */,
 				0098C29C2842E68600737E80 /* ProductResultsDTO.swift in Sources */,
 				00B147792856AC8200AF2D02 /* Address.swift in Sources */,
 				0010AF4C283E297300CF07EC /* Product.swift in Sources */,

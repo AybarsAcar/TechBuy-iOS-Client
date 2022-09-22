@@ -28,7 +28,7 @@ final class NetworkService: Networking {
     let request = buildRequest(from: url, methodType: endpoint.methodType)
     
     let (data, response) = try await session.data(for: request)
-    
+        
     guard let response = response as? HTTPURLResponse,
           (200...300) ~= response.statusCode else {
       
@@ -83,7 +83,9 @@ private extension NetworkService {
       
     case .POST(let data):
       request.httpMethod = "POST"
-      request.httpBody = data
+      request.httpBody = data      
+      request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
       
     case .DELETE:
       request.httpMethod = "DELETE"

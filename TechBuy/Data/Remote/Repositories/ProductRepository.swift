@@ -9,7 +9,7 @@ import Foundation
 
 /// This repository is not currently being used
 /// replaces by the reusable networking service
-// TODO: make a decision to delete the reporsitories in favour of NetworkService
+@available(*, deprecated, message: "Use the NetworkingService: Networking instead")
 final class ProductRepository: ProductService {
   
   private let domain: String = "https://dev-tech-buy.herokuapp.com/api"

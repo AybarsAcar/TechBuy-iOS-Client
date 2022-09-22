@@ -30,7 +30,7 @@ extension Endpoint {
         .search:
       return "/api/products"
     case .login:
-      return "/api/account/register"
+      return "/api/account/login"
     case .register:
       return "/api/account/register"
     case .currentUser:

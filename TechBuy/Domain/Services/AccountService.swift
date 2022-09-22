@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Deprecated by NetworkService
+@available(*, deprecated, message: "Use the NetworkingService: Networking instead")
 protocol AccountService {
   
   /// Login using login values

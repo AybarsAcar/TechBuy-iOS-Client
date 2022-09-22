@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
   
-  @EnvironmentObject private var viewModel: AccountViewModel
+  @EnvironmentObject private var vm: AccountViewModel
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -23,7 +23,7 @@ struct ProfileView: View {
       .padding()
       .padding(.bottom, 100)
     }
-    .snackbarAlert(viewModel.errorMessage, isPresented: $viewModel.showAlert, type: .error)
+    .snackbarAlert(vm.error?.localizedDescription ?? "", isPresented: $vm.hasError, type: .error)
   }
 }
 
