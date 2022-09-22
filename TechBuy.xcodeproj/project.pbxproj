@@ -71,6 +71,7 @@
 		00F0237828DC3DEF001801B0 /* SubmissionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237728DC3DEF001801B0 /* SubmissionState.swift */; };
 		00F0237A28DC3DF9001801B0 /* FormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237928DC3DF9001801B0 /* FormError.swift */; };
 		00F0237C28DC3E38001801B0 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237B28DC3E38001801B0 /* FormValidator.swift */; };
+		00F0237E28DC45E9001801B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0237D28DC45E9001801B0 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		00F0237728DC3DEF001801B0 /* SubmissionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionState.swift; sourceTree = "<group>"; };
 		00F0237928DC3DF9001801B0 /* FormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormError.swift; sourceTree = "<group>"; };
 		00F0237B28DC3E38001801B0 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
+		00F0237D28DC45E9001801B0 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 				00B5091B284E09C500F4EAF2 /* LocalBasketService.swift */,
 				0098C2972842E63800737E80 /* ProductService.swift */,
 				00312009284F2010007D2DEB /* AccountService.swift */,
+				00F0237D28DC45E9001801B0 /* Networking.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				005547CB285029A9003EE213 /* CustomAlertView.swift in Sources */,
 				00D36DE9283CEFD4006D8B6B /* BaseViewModel.swift in Sources */,
 				00DB0E94283F5AD0005F7D4B /* FavouritesView.swift in Sources */,
+				00F0237E28DC45E9001801B0 /* Networking.swift in Sources */,
 				00DB0E86283F561E005F7D4B /* ImageService.swift in Sources */,
 				00DB0E91283F596D005F7D4B /* NetworkError.swift in Sources */,
 			);

@@ -27,22 +27,12 @@ fileprivate func buildContainer() -> Container {
     return CloudinaryService()
   }
   .inObjectScope(.container)
-  
-  container.register(ProductService.self) { _ in
-    return ProductRepository(session: .shared)
-  }
-  .inObjectScope(.container)
-  
+    
   container.register(LocalBasketService.self) { _ in
     return LocalBasketRepository()
   }
   .inObjectScope(.container)
-  
-  container.register(AccountService.self) { _ in
-    return AccountRepository(session: .shared)
-  }
-  .inObjectScope(.container)
-  
+    
   container.register(Networking.self) { _ in
     return NetworkService(session: .shared)
   }
