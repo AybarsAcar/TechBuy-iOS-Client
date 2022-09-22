@@ -11,6 +11,7 @@ struct ContentView: View {
   
   @StateObject private var baseData = BaseViewModel()
   @StateObject private var basketViewModel = BasketViewModel()
+  @StateObject private var networkMonitor = NetworkMonitor()
   
   var body: some View {
     ZStack {
@@ -24,6 +25,11 @@ struct ContentView: View {
           .frame(maxHeight: .infinity)
           .background(.white)
       }
+    
+      NetworkModalView(
+        message: networkMonitor.connectionDescription,
+        symbol: networkMonitor.symbolName
+      )
     }
   }
 }

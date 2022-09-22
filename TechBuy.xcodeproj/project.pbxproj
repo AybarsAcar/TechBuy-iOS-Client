@@ -75,6 +75,8 @@
 		00F0238628DC77CF001801B0 /* TechBuy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0238528DC77CF001801B0 /* TechBuy_Tests.swift */; };
 		00F0238F28DC7C46001801B0 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0238E28DC7C46001801B0 /* HapticsManager.swift */; };
 		00F0239228DC7CA0001801B0 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0239128DC7CA0001801B0 /* UserDefaultKeys.swift */; };
+		00F0239528DC7DCB001801B0 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0239428DC7DCB001801B0 /* NetworkMonitor.swift */; };
+		00F0239B28DC8463001801B0 /* NetworkModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0239A28DC8463001801B0 /* NetworkModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,8 @@
 		00F0238C28DC7927001801B0 /* TechBuy-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TechBuy-Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		00F0238E28DC7C46001801B0 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		00F0239128DC7CA0001801B0 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		00F0239428DC7DCB001801B0 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		00F0239A28DC8463001801B0 /* NetworkModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,8 +205,8 @@
 		0010AF50283E35FA00CF07EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				00F0239628DC8414001801B0 /* Modals */,
 				00F0237228DC3BB7001801B0 /* Models */,
-				005547C928502997003EE213 /* CustomAlert */,
 				0031200E284F3A0A007D2DEB /* BoxTextField.swift */,
 				0010AF53283E361500CF07EC /* Navbar.swift */,
 				0004CE1528433FC8009D5BDD /* CachedImage */,
@@ -220,12 +224,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		003F67C528D32C540093BF21 /* Services */ = {
+		003F67C528D32C540093BF21 /* DeviceServices */ = {
 			isa = PBXGroup;
 			children = (
+				00F0239328DC7DBA001801B0 /* Network */,
 				00F0238D28DC7C3C001801B0 /* Haptic */,
 			);
-			path = Services;
+			path = DeviceServices;
 			sourceTree = "<group>";
 		};
 		005547BD28501D9E003EE213 /* Resources */ = {
@@ -320,7 +325,7 @@
 				00D36DD5283CEB01006D8B6B /* Extensions */,
 				00D36DCA283CEA72006D8B6B /* Preview Content */,
 				005547BD28501D9E003EE213 /* Resources */,
-				003F67C528D32C540093BF21 /* Services */,
+				003F67C528D32C540093BF21 /* DeviceServices */,
 				00D36DD6283CEB05006D8B6B /* Styles */,
 				00D36DD7283CEB06006D8B6B /* Utils */,
 				00D36DD8283CEB09006D8B6B /* View */,
@@ -577,6 +582,31 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		00F0239328DC7DBA001801B0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				00F0239428DC7DCB001801B0 /* NetworkMonitor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		00F0239628DC8414001801B0 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				00F0239728DC841D001801B0 /* NetworkModal */,
+				005547C928502997003EE213 /* CustomAlert */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		00F0239728DC841D001801B0 /* NetworkModal */ = {
+			isa = PBXGroup;
+			children = (
+				00F0239A28DC8463001801B0 /* NetworkModalView.swift */,
+			);
+			path = NetworkModal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -718,10 +748,12 @@
 				0098C2982842E63800737E80 /* ProductService.swift in Sources */,
 				0031200A284F2010007D2DEB /* AccountService.swift in Sources */,
 				0098C29A2842E65100737E80 /* ProductRepository.swift in Sources */,
+				00F0239B28DC8463001801B0 /* NetworkModalView.swift in Sources */,
 				00D36DEE283CF7A8006D8B6B /* HomeView.swift in Sources */,
 				00312006284F1C5A007D2DEB /* Account.swift in Sources */,
 				00794BB12851FBD000528C17 /* BasketViewModel.swift in Sources */,
 				00B50918284DFF4900F4EAF2 /* SidebarView.swift in Sources */,
+				00F0239528DC7DCB001801B0 /* NetworkMonitor.swift in Sources */,
 				00F0237A28DC3DF9001801B0 /* FormError.swift in Sources */,
 				00F0237428DC3BC0001801B0 /* ViewState.swift in Sources */,
 				00794BAD2851F5BB00528C17 /* BasketItem.swift in Sources */,

@@ -11,7 +11,7 @@ import SwiftUI
 struct TechBuyApp: App {
   
   @StateObject private var accountViewModel = AccountViewModel()
-  
+
   var body: some Scene {
     WindowGroup {
       ContentView()
