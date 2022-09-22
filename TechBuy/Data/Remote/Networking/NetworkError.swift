@@ -8,9 +8,9 @@
 import Foundation
 
 /// Custom error returned from the requests
-enum APIError: Error, LocalizedError {
+enum NetworkError: Error, LocalizedError {
   case invalidURL
-  case invalidResponseStatus
+  case invalidStatusCode(statusCode: Int)
   case dataTaskError(String)
   case corruptData
   case decodingError(String)
@@ -22,8 +22,8 @@ enum APIError: Error, LocalizedError {
     switch self {
     case .invalidURL:
       return NSLocalizedString("THe endpoint URL is invalid", comment: "")
-    case .invalidResponseStatus:
-      return NSLocalizedString("The API failed to issue a valid response", comment: "")
+    case .invalidStatusCode(let statusCode):
+      return NSLocalizedString("The API failed to issue a valid response with status code \(statusCode)", comment: "")
     case .dataTaskError(let string):
       return string
     case .corruptData:

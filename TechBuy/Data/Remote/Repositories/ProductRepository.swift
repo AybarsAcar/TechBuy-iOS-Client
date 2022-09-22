@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// This repository is not currently being used
+/// replaces by the reusable networking service
+// TODO: make a decision to delete the reporsitories in favour of NetworkService
 final class ProductRepository: ProductService {
   
   private let domain: String = "https://dev-tech-buy.herokuapp.com/api"
@@ -31,14 +34,22 @@ final class ProductRepository: ProductService {
     ]
 
     guard let url = componets.url else {
-      throw APIError.invalidURL
+      throw NetworkError.invalidURL
     }
 
     do {
       let (data, response) = try await session.data(from: url)
 
-      guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 else {
-        throw APIError.invalidResponseStatus
+      guard let httpResponse = response as? HTTPURLResponse,
+            (200...300) ~= httpResponse.statusCode else {
+        
+        let statusCode = (response as! HTTPURLResponse).statusCode
+        
+        if statusCode == 401 {
+          throw NetworkError.unauthorised
+        }
+        
+        throw NetworkError.invalidStatusCode(statusCode: statusCode)
       }
       
       let decoder = JSONDecoder()
@@ -52,14 +63,12 @@ final class ProductRepository: ProductService {
         
       } catch {
         print(error)
-        throw APIError.decodingError(error.localizedDescription)
+        throw NetworkError.decodingError(error.localizedDescription)
       }
       
     } catch {
-      print("\n\n\n\n\n\n\n")
       print(error)
-      print("\n\n\n\n\n\n\n")
-      throw APIError.dataTaskError(error.localizedDescription)
+      throw NetworkError.dataTaskError(error.localizedDescription)
     }
   }
   

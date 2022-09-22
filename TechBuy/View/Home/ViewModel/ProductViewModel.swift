@@ -15,7 +15,7 @@ final class ProductViewModel: ObservableObject {
   
   @Published private(set) var loading = false
   
-  @Inject private var productRepository: ProductService
+  @Inject private var service: Networking
   
   init() {
     Task {
@@ -39,8 +39,11 @@ final class ProductViewModel: ObservableObject {
       loading = false
     }
     
-    do {
-      let response = try await productRepository.getProducts(PageParams(pageIndex: 1, pageSize: 20), orderBy: sortDescriptor, productType: selectedProductType.identifier, productBrand: nil)
+    do {      
+      let response = try await service.request(
+        .products(page: PageParams(pageIndex: 1, pageSize: 20), sortDescriptor: sortDescriptor, type: selectedProductType.identifier, brand: nil),
+        type: ProductResultsDTO.self
+      )
       
       products = response.data.compactMap { dto in
         dto.toProduct()

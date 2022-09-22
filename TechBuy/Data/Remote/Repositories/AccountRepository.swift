@@ -17,11 +17,12 @@ final class AccountRepository: AccountService {
   }
   
   func login(with loginValues: LoginFormValues) async throws -> AccountDTO {
-    
+#if DEBUG
     try? await Task.sleep(nanoseconds: 2_000_000_000)
-    
+#endif
+
     guard let url = URL(string: "\(domain)/account/login") else {
-      throw APIError.invalidURL
+      throw NetworkError.invalidURL
     }
     
     // build request
@@ -30,22 +31,22 @@ final class AccountRepository: AccountService {
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     guard let dataToSend = try? JSONEncoder().encode(loginValues) else {
-      throw APIError.corruptData
+      throw NetworkError.corruptData
     }
     
     do {
       let (data, response) = try await session.upload(for: request, from: dataToSend)
       
-      guard let httpResponse = response as? HTTPURLResponse else {
-        throw APIError.invalidResponseStatus
-      }
-      
-      guard httpResponse.statusCode == 200 else {
-        if httpResponse.statusCode == 401 {
-          throw APIError.unauthorised
+      guard let httpResponse = response as? HTTPURLResponse,
+            (200...300) ~= httpResponse.statusCode else {
+        
+        let statusCode = (response as! HTTPURLResponse).statusCode
+        
+        if statusCode == 401 {
+          throw NetworkError.unauthorised
         }
         
-        throw APIError.invalidResponseStatus
+        throw NetworkError.invalidStatusCode(statusCode: statusCode)
       }
       
       let decoder = JSONDecoder()
@@ -55,19 +56,19 @@ final class AccountRepository: AccountService {
         
       } catch {
         print(error)
-        throw APIError.decodingError(error.localizedDescription)
+        throw NetworkError.decodingError(error.localizedDescription)
       }
       
     } catch {
       print(error)
-      throw APIError.dataTaskError(error.localizedDescription)
+      throw NetworkError.dataTaskError(error.localizedDescription)
     }
   }
   
   func register(with registerValues: RegisterFormValues) async throws -> AccountDTO {
     
     guard let url = URL(string: "\(domain)/account/register") else {
-      throw APIError.invalidURL
+      throw NetworkError.invalidURL
     }
     
     // build request
@@ -76,22 +77,22 @@ final class AccountRepository: AccountService {
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     guard let dataToSend = try? JSONEncoder().encode(registerValues) else {
-      throw APIError.corruptData
+      throw NetworkError.corruptData
     }
     
     do {
       let (data, response) = try await session.upload(for: request, from: dataToSend)
       
-      guard let httpResponse = response as? HTTPURLResponse else {
-        throw APIError.invalidResponseStatus
-      }
-      
-      guard httpResponse.statusCode == 200 else {
-        if httpResponse.statusCode == 401 {
-          throw APIError.unauthorised
+      guard let httpResponse = response as? HTTPURLResponse,
+            (200...300) ~= httpResponse.statusCode else {
+        
+        let statusCode = (response as! HTTPURLResponse).statusCode
+        
+        if statusCode == 401 {
+          throw NetworkError.unauthorised
         }
         
-        throw APIError.invalidResponseStatus
+        throw NetworkError.invalidStatusCode(statusCode: statusCode)
       }
       
       let decoder = JSONDecoder()
@@ -103,12 +104,12 @@ final class AccountRepository: AccountService {
         
       } catch {
         print(error)
-        throw APIError.decodingError(error.localizedDescription)
+        throw NetworkError.decodingError(error.localizedDescription)
       }
       
     } catch {
       print(error)
-      throw APIError.dataTaskError(error.localizedDescription)
+      throw NetworkError.dataTaskError(error.localizedDescription)
     }
   }
   

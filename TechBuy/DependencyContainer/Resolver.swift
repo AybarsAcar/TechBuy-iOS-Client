@@ -43,5 +43,10 @@ fileprivate func buildContainer() -> Container {
   }
   .inObjectScope(.container)
   
+  container.register(Networking.self) { _ in
+    return NetworkService(session: .shared)
+  }
+  .inObjectScope(.container)
+  
   return container
 }

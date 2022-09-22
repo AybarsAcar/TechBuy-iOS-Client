@@ -20,7 +20,7 @@ final class CloudinaryService: ImageService {
   func getImage(byURL urlString: String) async throws -> Data {
     
     guard let url = URL(string: urlString) else {
-      throw APIError.invalidURL
+      throw NetworkError.invalidURL
     }
     
     do {
@@ -30,7 +30,7 @@ final class CloudinaryService: ImageService {
       return data
       
     } catch {
-      throw APIError.notFound
+      throw NetworkError.notFound
     }
   }
 }
