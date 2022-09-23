@@ -83,3 +83,11 @@ private extension ProductViewModel {
     }
   }
 }
+
+// MARK: - Convenience Init for testing
+extension ProductViewModel {
+  convenience init(service: Networking) {
+    self.init()
+    self._service.mockWrappedValue(with: service)
+  }
+}

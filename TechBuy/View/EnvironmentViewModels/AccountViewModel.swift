@@ -82,3 +82,11 @@ final class AccountViewModel: ObservableObject {
     }
   }
 }
+
+// MARK: - Convenience Init for testing
+extension AccountViewModel {
+  convenience init(service: Networking) {
+    self.init()
+    self._service.mockWrappedValue(with: service)
+  }
+}
