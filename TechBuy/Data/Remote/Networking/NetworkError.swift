@@ -8,7 +8,7 @@
 import Foundation
 
 /// Custom error returned from the requests
-enum NetworkError: Error, LocalizedError {
+enum NetworkError: Error, LocalizedError, Equatable {
   case invalidURL
   case invalidStatusCode(statusCode: Int)
   case dataTaskError(String)

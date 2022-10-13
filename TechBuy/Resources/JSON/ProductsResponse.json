@@ -1,0 +1,61 @@
+{
+    "page_index": 1,
+    "page_size": 6,
+    "page_count": 18,
+    "data": [
+        {
+            "id": 3,
+            "name": "Air Pods Pro",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+            "price": 399.99,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653778857/airpods-pro_tfb5l4.png",
+            "product_type": "Headphone",
+            "product_brand": "Apple"
+        },
+        {
+            "id": 2,
+            "name": "Air Pods Pro Max",
+            "description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+            "price": 599.99,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653778974/airpods-pro-max_vynfja.png",
+            "product_type": "Headphone",
+            "product_brand": "Apple"
+        },
+        {
+            "id": 9,
+            "name": "Alienware Laptop",
+            "description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+            "price": 3600.00,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653777862/alienware-laptop_fvesbe.png",
+            "product_type": "Laptop",
+            "product_brand": "Alienware"
+        },
+        {
+            "id": 18,
+            "name": "Apple Magic Keyboard",
+            "description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+            "price": 109.00,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653779212/magic-keyboard_bzlxd0.png",
+            "product_type": "Other",
+            "product_brand": "Apple"
+        },
+        {
+            "id": 10,
+            "name": "Apple Watch",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+            "price": 800.00,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653777287/watch_lxm5do.png",
+            "product_type": "Watch",
+            "product_brand": "Apple"
+        },
+        {
+            "id": 16,
+            "name": "Apple Watch Hermes",
+            "description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+            "price": 4000.00,
+            "image_url": "https://res.cloudinary.com/ddngwhjkk/image/upload/v1653777745/apple-watch-hermess_dbpc5m.png",
+            "product_type": "Watch",
+            "product_brand": "Apple"
+        }
+    ]
+}
