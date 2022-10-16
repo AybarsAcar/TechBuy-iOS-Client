@@ -87,6 +87,6 @@ final class AccountViewModel: ObservableObject {
 extension AccountViewModel {
   convenience init(service: Networking) {
     self.init()
-    self._service.mockWrappedValue(with: service)
+    self._service.wrappedValue = service
   }
 }

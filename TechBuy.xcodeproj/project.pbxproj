@@ -10,6 +10,8 @@
 		0004CE1428433D92009D5BDD /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004CE1328433D92009D5BDD /* CachedImage.swift */; };
 		0004CE1728435475009D5BDD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004CE1628435475009D5BDD /* ProductViewModel.swift */; };
 		000B767B28FBF783001C98AF /* NetworkingEndpoint_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B767A28FBF783001C98AF /* NetworkingEndpoint_Tests.swift */; };
+		000B767E28FBFF3C001C98AF /* ProductViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B767D28FBFF3C001C98AF /* ProductViewModel_Tests.swift */; };
+		000B768028FBFF70001C98AF /* NetworkServiceSuccessfulProductMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B767F28FBFF70001C98AF /* NetworkServiceSuccessfulProductMock.swift */; };
 		0010AF4A283E245700CF07EC /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF49283E245700CF07EC /* Image+Extensions.swift */; };
 		0010AF4C283E297300CF07EC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF4B283E297300CF07EC /* Product.swift */; };
 		0010AF4F283E34C900CF07EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010AF4E283E34C900CF07EC /* DetailView.swift */; };
@@ -103,6 +105,8 @@
 		0004CE1328433D92009D5BDD /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		0004CE1628435475009D5BDD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		000B767A28FBF783001C98AF /* NetworkingEndpoint_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEndpoint_Tests.swift; sourceTree = "<group>"; };
+		000B767D28FBFF3C001C98AF /* ProductViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel_Tests.swift; sourceTree = "<group>"; };
+		000B767F28FBFF70001C98AF /* NetworkServiceSuccessfulProductMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSuccessfulProductMock.swift; sourceTree = "<group>"; };
 		0010AF49283E245700CF07EC /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		0010AF4B283E297300CF07EC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0010AF4E283E34C900CF07EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -222,6 +226,14 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		000B767C28FBFF1E001C98AF /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				000B767D28FBFF3C001C98AF /* ProductViewModel_Tests.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		0010AF4D283E34B600CF07EC /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +326,7 @@
 				0055A1AF28F817BB0034A244 /* MockURLSessionProtocol.swift */,
 				0055A1B128F81B0E0034A244 /* NetworkServiceUserResponseFailureMock.swift */,
 				0055A1B328F81B420034A244 /* NetworkServiceUserLoginSuccessMock.swift */,
+				000B767F28FBFF70001C98AF /* NetworkServiceSuccessfulProductMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -644,6 +657,7 @@
 		00F0238428DC77CF001801B0 /* TechBuy_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				000B767C28FBFF1E001C98AF /* Product */,
 				0055A1BB28F81E5B0034A244 /* Account */,
 				0055A1AB28F817240034A244 /* Networking */,
 				00F0238C28DC7927001801B0 /* TechBuy-Tests-Info.plist */,
@@ -879,8 +893,10 @@
 			files = (
 				0055A1AD28F8175E0034A244 /* NetworkService_Tests.swift in Sources */,
 				0055A1B228F81B0E0034A244 /* NetworkServiceUserResponseFailureMock.swift in Sources */,
+				000B768028FBFF70001C98AF /* NetworkServiceSuccessfulProductMock.swift in Sources */,
 				00F0238628DC77CF001801B0 /* TechBuy_Tests.swift in Sources */,
 				0055A1B428F81B420034A244 /* NetworkServiceUserLoginSuccessMock.swift in Sources */,
+				000B767E28FBFF3C001C98AF /* ProductViewModel_Tests.swift in Sources */,
 				000B767B28FBF783001C98AF /* NetworkingEndpoint_Tests.swift in Sources */,
 				0055A1BE28F81E770034A244 /* StaticJSONMapper_Tests.swift in Sources */,
 				0055A1C228F8224D0034A244 /* AccountViewModel_Tests.swift in Sources */,

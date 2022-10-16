@@ -13,14 +13,10 @@ import Foundation
 /// ```
 @propertyWrapper
 struct Inject<T> {
-  private(set) var wrappedValue: T
+  var wrappedValue: T
   
   init() {
     // resolve the interface to an implementation
     self.wrappedValue = Resolver.shared.resolve(T.self)
-  }
-  
-  mutating func mockWrappedValue(with wrappedValue: T) {
-    self.wrappedValue = wrappedValue
   }
 }

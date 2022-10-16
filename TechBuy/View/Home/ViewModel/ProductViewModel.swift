@@ -19,6 +19,10 @@ final class ProductViewModel: ObservableObject {
   
   @Inject private var service: Networking
   
+  var loading: Bool {
+    return state == .loading
+  }
+  
   // pagination properties
   private var page = 1
   private var totalPages: Int?
@@ -88,6 +92,6 @@ private extension ProductViewModel {
 extension ProductViewModel {
   convenience init(service: Networking) {
     self.init()
-    self._service.mockWrappedValue(with: service)
+    self._service.wrappedValue = service
   }
 }
