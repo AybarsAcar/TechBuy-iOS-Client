@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+
+  @EnvironmentObject private var networkMonitor: NetworkMonitor
   
   @StateObject private var baseData = BaseViewModel()
   @StateObject private var basketViewModel = BasketViewModel()
-  @StateObject private var networkMonitor = NetworkMonitor()
   
   var body: some View {
     ZStack {
@@ -81,5 +82,6 @@ All Rights Reserved
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+      .environmentObject(NetworkMonitor())
   }
 }

@@ -12,8 +12,12 @@ final class NetworkServiceUserLoginSuccessMock: Networking {
   
   /// Returns a successful login response
   func request<T>(_ endpoint: TechBuy.Endpoint, type: T.Type) async throws -> T where T : Decodable, T : Encodable {
+    print("HERE")
+    let user = try StaticJSONMapper.shared.decode(file: "SuccessfulLoginResponse", type: AccountDTO.self) as! T
+
+    print(user)
     
-    return try StaticJSONMapper.shared.decode(file: "SuccessfulLoginResponse", type: AccountDTO.self) as! T
+    return user
   }
   
   func request(_ endpoint: TechBuy.Endpoint) async throws {

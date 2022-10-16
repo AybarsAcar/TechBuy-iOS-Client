@@ -25,11 +25,15 @@ final class NetworkMonitor: ObservableObject {
   
   init() {
     monitor.pathUpdateHandler = { [weak self] path in
+      guard let self else {
+        return
+      }
+      
       DispatchQueue.main.async {
-        self?.connected = path.status == .satisfied
+        self.connected = path.status == .satisfied
       }
     }
-  
+    
     monitor.start(queue: queue)
   }
   

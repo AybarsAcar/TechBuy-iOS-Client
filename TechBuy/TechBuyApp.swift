@@ -11,11 +11,13 @@ import SwiftUI
 struct TechBuyApp: App {
   
   @StateObject private var accountViewModel = AccountViewModel()
+  @StateObject private var networkMonitor = NetworkMonitor()
 
   var body: some Scene {
     WindowGroup {
       ContentView()
         .environmentObject(accountViewModel)
+        .environmentObject(networkMonitor)
         .preferredColorScheme(.light)
     }
   }
