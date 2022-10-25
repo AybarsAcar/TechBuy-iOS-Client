@@ -44,7 +44,7 @@ final class AccountViewModel: ObservableObject {
       
       let data = try JSONEncoder().encode(formValues)
             
-      let accountDTO = try await service.request(.login(data: data), type: AccountDTO.self)
+      let accountDTO = try await service.request(AuthEndpoint.login(data: data), type: AccountDTO.self)
       
       withAnimation(.easeInOut) {
         account = accountDTO.toAccount()

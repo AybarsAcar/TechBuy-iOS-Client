@@ -77,7 +77,7 @@ final class NetworkService: Networking {
 
 private extension NetworkService {
   
-  func buildRequest(from url: URL, methodType: Endpoint.MethodType) -> URLRequest {
+  func buildRequest(from url: URL, methodType: MethodType) -> URLRequest {
     
     var request = URLRequest(url: url)
     

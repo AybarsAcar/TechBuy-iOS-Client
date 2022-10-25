@@ -53,7 +53,7 @@ final class ProductViewModel: ObservableObject {
     
     do {      
       let response = try await service.request(
-        .products(page: PageParams(pageIndex: 1, pageSize: 20), sortDescriptor: sortDescriptor, type: selectedProductType.identifier, brand: nil),
+        ProductEndpoint.products(page: PageParams(pageIndex: 1, pageSize: 20), sortDescriptor: sortDescriptor, type: selectedProductType.identifier, brand: nil),
         type: ProductResultsDTO.self
       )
       
