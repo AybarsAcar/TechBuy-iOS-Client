@@ -43,7 +43,7 @@ final class AccountViewModel: ObservableObject {
       try CreateValidator.shared.validate(forLogin: formValues)
       
       let data = try JSONEncoder().encode(formValues)
-            
+      
       let accountDTO = try await service.request(AuthEndpoint.login(data: data), type: AccountDTO.self)
       
       withAnimation(.easeInOut) {

@@ -14,6 +14,8 @@ struct ContentView: View {
   @StateObject private var baseData = BaseViewModel()
   @StateObject private var basketViewModel = BasketViewModel()
   
+  @State private var networkModalDisplayed = true
+  
   var body: some View {
     ZStack {
       TabBar()
@@ -29,8 +31,10 @@ struct ContentView: View {
     
       NetworkModalView(
         message: networkMonitor.connectionDescription,
-        symbol: networkMonitor.symbolName
+        symbol: networkMonitor.symbolName,
+        displayed: $networkModalDisplayed
       )
+      .opacity(networkModalDisplayed ? 1.0 : 0.0)
     }
   }
 }
